@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigoFabricante: MyString
+  nomeItem: MyString
+  descricao: MyString
+  validade: 2018-05-06
+  preco: 9.99
+
+two:
+  codigoFabricante: MyString
+  nomeItem: MyString
+  descricao: MyString
+  validade: 2018-05-06
+  preco: 9.99

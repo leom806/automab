@@ -2,6 +2,8 @@ module Api
   module V1
     class ItemController < ApplicationController
 
+      http_basic_authenticate_with name: "admin", password: "123"
+
       # Query items
       def index
         items = Item.all

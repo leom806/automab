@@ -14,6 +14,7 @@ CategoriaItem.delete_all
   })
 end
 
+# Na hora de deletar o item, o ActiveRecord::StatementInvalid é chamado, pois há referências de chaves estrangeiras.
 Item.delete_all
 
 5.times do |i|
@@ -24,5 +25,15 @@ Item.delete_all
     descricao: 'Item importante',
     validade: Date.today + 30,
     preco: 69.69
+  })
+end
+
+Cargo.delete_all
+
+5.times do |i|
+  Cargo.create({
+    nome: 'Nome nº ' + (i+1).to_s,
+    salario: 69.69,
+    descricao: 'Mais uma descrição'
   })
 end

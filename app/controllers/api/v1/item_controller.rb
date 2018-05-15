@@ -2,7 +2,7 @@ module Api
   module V1
     class ItemController < ApplicationController
 
-      http_basic_authenticate_with name: "admin", password: "123"
+      # http_basic_authenticate_with name: "admin", password: "123"
 
       # Query items
       def index
@@ -12,9 +12,9 @@ module Api
 
       # Find one
       def show
-        item = Item.find(params[:id])                   
+        item = Item.find(params[:id])
 
-        render json: {status: 'Sucesso', mensagem: 'Item', dados: item}, status: :ok 
+        render json: {status: 'Sucesso', mensagem: 'Item', dados: item}, status: :ok
       end
 
       # New item
@@ -22,7 +22,7 @@ module Api
         item = Item.new(item_params)
 
         if item.save
-          render json: {status: 'Sucesso', mensagem: 'Item foi criado.', dados: item}, status: :ok 
+          render json: {status: 'Sucesso', mensagem: 'Item foi criado.', dados: item}, status: :ok
         else
           render json: {status: 'Erro', mensagem: 'Item não foi criado.', motivo: item.errors.full_messages, parametros: item_params}, status: :unprocessable_entity
         end
@@ -32,11 +32,11 @@ module Api
        def destroy
         item = Item.find(params[:id])
 
-        if item != nil 
-          item.destroy 
+        if item != nil
+          item.destroy
           render json: {status: 'Sucesso', mensagem: 'Item foi excluído.', dados: item}, status: :ok
         else
-          render json: {status: 'Erro', mensagem: 'Item não encontrado.'}, status: :ok
+          render json: {status: 'Erro', mensagem: 'Item não encontrado.'}, status: :ok # [Breno]: O status é "ok" aqui, mesmo?
         end
 
       end
@@ -46,11 +46,11 @@ module Api
         item = Item.find(params[:id])
 
         if item.update(item_params)
-          render json: {status: 'Sucesso', mensagem: 'Item foi atualizado.', dados: item}, status: :ok 
+          render json: {status: 'Sucesso', mensagem: 'Item foi atualizado.', dados: item}, status: :ok
         else
           render json: {status: 'Erro', mensagem: 'Item não foi atualizado.', motivo: item.errors.full_messages, parametros: item_params}, status: :unprocessable_entity
         end
-        
+
       end
 
       private
@@ -58,7 +58,6 @@ module Api
       def item_params
         params.permit(:codigoFabricante, :nomeItem, :descricao, :validade, :preco, :item_item_id)
       end
-
     end
   end
 end

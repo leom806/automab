@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180515004251) do
 
-  create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nome"
     t.float "salario", limit: 24
     t.text "descricao"
@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(version: 20180515004251) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categoria_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categoria_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "codigoFabricante"
     t.string "nomeItem"
     t.string "descricao"

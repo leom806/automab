@@ -78,10 +78,77 @@ Breno:
     Destroy             [ -- ]
 
 Momente:
-  Categoria Item
-  Item
-  Ordem Serviço
-  Transação
-  Orçamento Item
-  Orçamento
-  Agendamento
+  Categoria Item:       [ OK ]
+    - Descrição
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Item:                 [ OK ]
+    - Código Fabricante
+    - Nome do Item
+    - Descrição
+    - Validade
+    - Categoria do Item
+    - Preço
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Ordem Serviço:        [ -- ]
+    - Orçamento 
+    - Valor Total
+    - Descrição Serviço
+    - Observação
+    - Data de Criação
+    - Garantia
+    - Status do Pagamento
+    Create              [ -- ]
+    Read                [ -- ]
+    Update              [ -- ]
+    Destroy             [ -- ]
+
+  Transação:            [ -- ]
+    - Ordem de Serviço
+    - Funcionário
+    - Data de Transação
+    - Valor Recebido
+    - Forma de Pagamento
+    Create              [ -- ]
+    Read                [ -- ]
+    Update              [ -- ]
+    Destroy             [ -- ]
+
+  Orçamento Item:       [ -- ]
+    - Orçamento
+    - Item
+    - Quantidade de Itens
+    Create              [ -- ]
+    Read                [ -- ]
+    Update              [ -- ]
+    Destroy             [ -- ]
+
+  Orçamento:            [ -- ]
+    - Funcionário
+    - Agendamento
+    - Cliente
+    - Serviço Concluído
+    - Veículo
+    Create              [ -- ]
+    Read                [ -- ]
+    Update              [ -- ]
+    Destroy             [ -- ]
+
+  Agendamento:          [ -- ]
+    - Funcionário
+    - Data de Solicitação
+    - Data Agendada
+    - Entrega Estimada
+    - Descrição
+    Create              [ -- ]
+    Read                [ -- ]
+    Update              [ -- ]
+    Destroy             [ -- ]
+  

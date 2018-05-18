@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  juridica: false
+  inscricao_municipal: MyString
+  cpf: MyString
+  nome_fantasia: MyString
+  cnpj: MyString
+  data_ultima_alteracao: 2018-05-18
+  tipo_terceiro: MyString
+  data_cadastro: 2018-05-18
+  rg: MyString
+  data_nascimento: 2018-05-18
+
+two:
+  juridica: false
+  inscricao_municipal: MyString
+  cpf: MyString
+  nome_fantasia: MyString
+  cnpj: MyString
+  data_ultima_alteracao: 2018-05-18
+  tipo_terceiro: MyString
+  data_cadastro: 2018-05-18
+  rg: MyString
+  data_nascimento: 2018-05-18

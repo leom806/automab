@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  funcionario: one
+  agendamento: one
+  cliente: one
+  servico_concluido: false
+  veiculo: one
+
+two:
+  funcionario: two
+  agendamento: two
+  cliente: two
+  servico_concluido: false
+  veiculo: two

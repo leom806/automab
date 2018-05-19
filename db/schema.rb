@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515004251) do
+ActiveRecord::Schema.define(version: 20180518232708) do
+
+  create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "funcionario"
+    t.date "data_solicitacao"
+    t.date "data_agendamento"
+    t.date "entrega_estimada"
+    t.text "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nome"
@@ -36,6 +46,32 @@ ActiveRecord::Schema.define(version: 20180515004251) do
     t.datetime "updated_at", null: false
     t.bigint "categoria_item_id"
     t.index ["categoria_item_id"], name: "index_items_on_categoria_item_id"
+  end
+
+  create_table "orcamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "funcionario"
+    t.string "agendamento"
+    t.string "cliente"
+    t.string "veiculo"
+    t.boolean "servico_concluido"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "terceiros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.boolean "juridica"
+    t.string "inscricao_municipal"
+    t.string "cpf"
+    t.string "nome_fantasia"
+    t.string "cnpj"
+    t.date "data_ultima_alteracao"
+    t.string "tipo_terceiro"
+    t.date "data_cadastro"
+    t.string "rg"
+    t.date "data_nascimento"
+    t.string "nome_completo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "items", "categoria_items"

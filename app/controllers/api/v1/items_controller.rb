@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ItemController < ApplicationController
+    class ItemsController < ApplicationController
 
       # http_basic_authenticate_with name: "admin", password: "123"
 

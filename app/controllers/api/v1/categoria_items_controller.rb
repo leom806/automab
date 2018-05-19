@@ -1,6 +1,6 @@
 module Api
   module V1
-    class CategoriaItemController < ApplicationController
+    class CategoriaItemsController < ApplicationController
 
       # Query method
       def index

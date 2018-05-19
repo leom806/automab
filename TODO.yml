@@ -77,6 +77,8 @@ Breno:
     Update              [ -- ]
     Destroy             [ -- ]
 
+
+
 Momente:
   Categoria Item:       [ OK ]
     - Descrição
@@ -130,25 +132,25 @@ Momente:
     Update              [ -- ]
     Destroy             [ -- ]
 
-  Orçamento:            [ -- ]
+  Orçamento:            [ OK ]
     - Funcionário
     - Agendamento
     - Cliente
     - Serviço Concluído
     - Veículo
-    Create              [ -- ]
-    Read                [ -- ]
-    Update              [ -- ]
-    Destroy             [ -- ]
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
 
-  Agendamento:          [ -- ]
+  Agendamento:          [ OK ] Working | Incomplete Json
     - Funcionário
     - Data de Solicitação
     - Data Agendada
     - Entrega Estimada
     - Descrição
-    Create              [ -- ]
-    Read                [ -- ]
-    Update              [ -- ]
-    Destroy             [ -- ]
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
   

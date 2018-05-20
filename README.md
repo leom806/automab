@@ -1,24 +1,3 @@
-# README
+# AutoMAB é um sistema de gestão para centros automotivos.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Atividade proposta durante a disciplina de Laboratório de Engenharia de Software com a finalidade de aplicar todos os conceitos e abordagens de criação de um projeto de software, de documentação até a implementação.

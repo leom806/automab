@@ -6,10 +6,10 @@ class Orcamento < ApplicationRecord
   # Serviço Concluído
   # Veículo
   
-  has_one :funcionario
-  has_one :agendamento
-  has_one :cliente
-  has_one :veiculo
+  # has_one :funcionario
+  # has_one :agendamento
+  # has_one :cliente
+  # has_one :veiculo
 
   validates :funcionario, :agendamento, :cliente, :veiculo, :servico_concluido, presence: true
 

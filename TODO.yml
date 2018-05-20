@@ -123,14 +123,14 @@ Momente:
     Update              [ -- ]
     Destroy             [ -- ]
 
-  Orçamento Item:       [ -- ]
+  Orçamento Item:       [ OK ]
     - Orçamento
     - Item
     - Quantidade de Itens
-    Create              [ -- ]
-    Read                [ -- ]
-    Update              [ -- ]
-    Destroy             [ -- ]
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
 
   Orçamento:            [ OK ]
     - Funcionário

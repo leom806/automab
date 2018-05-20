@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518232708) do
+ActiveRecord::Schema.define(version: 20180519233914) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "funcionario"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 20180518232708) do
     t.index ["categoria_item_id"], name: "index_items_on_categoria_item_id"
   end
 
+  create_table "orcamento_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "orcamento_id"
+    t.bigint "agendamento_id"
+    t.integer "quantidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agendamento_id"], name: "index_orcamento_items_on_agendamento_id"
+    t.index ["orcamento_id"], name: "index_orcamento_items_on_orcamento_id"
+  end
+
   create_table "orcamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "funcionario"
     t.string "agendamento"
@@ -75,4 +85,6 @@ ActiveRecord::Schema.define(version: 20180518232708) do
   end
 
   add_foreign_key "items", "categoria_items"
+  add_foreign_key "orcamento_items", "agendamentos"
+  add_foreign_key "orcamento_items", "orcamentos"
 end

@@ -7,7 +7,7 @@ module Api
       def index
         @agendamentos = Agendamento.all
 
-        render json: @agendamentos
+        render json: { status: 'Sucesso', mensagem: 'Agendamentos', dados: @agendamentos }, status: :ok
       end
 
       # GET /agendamentos/1

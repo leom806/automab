@@ -7,7 +7,7 @@ module Api
       # Query items
       def index
         items = Item.all
-        render json: { status: 'Sucesso', mensagem: 'Item', dados: items }, status: :ok
+        render json: { status: 'Sucesso', mensagem: 'Items', dados: items }, status: :ok
       end
 
       # Find one

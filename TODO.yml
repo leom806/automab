@@ -77,11 +77,80 @@ Breno:
     Update              [ -- ]
     Destroy             [ -- ]
 
+
+
 Momente:
-  Categoria Item
-  Item
-  Ordem Serviço
-  Transação
-  Orçamento Item
-  Orçamento
-  Agendamento
+  Categoria Item:       [ OK ]
+    - Descrição
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Item:                 [ OK ]
+    - Código Fabricante
+    - Nome do Item
+    - Descrição
+    - Validade
+    - Categoria do Item
+    - Preço
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Ordem Serviço:        [ OK ]
+    - Orçamento 
+    - Valor Total
+    - Descrição Serviço
+    - Observação
+    - Data de Criação
+    - Garantia
+    - Status do Pagamento
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Transação:            [ OK ]
+    - Ordem de Serviço
+    - Funcionário
+    - Data de Transação
+    - Valor Recebido
+    - Forma de Pagamento
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Orçamento Item:       [ OK ]
+    - Orçamento
+    - Item
+    - Quantidade de Itens
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Orçamento:            [ OK ]
+    - Funcionário
+    - Agendamento
+    - Cliente
+    - Serviço Concluído
+    - Veículo
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+
+  Agendamento:          [ OK ] Working | Incomplete Json
+    - Funcionário
+    - Data de Solicitação
+    - Data Agendada
+    - Entrega Estimada
+    - Descrição
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
+  

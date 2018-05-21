@@ -1,7 +1,9 @@
 
-Cargo.delete_all
+OrcamentoItem.delete_all
+Orcamento.delete_all
 Item.delete_all
 CategoriaItem.delete_all
+Cargo.delete_all
 
 5.times do |i|
   CategoriaItem.create({
@@ -25,5 +27,33 @@ end
     nome: 'Nome nº ' + (i+1).to_s,
     salario: 69.69,
     descricao: 'Mais uma descrição'
+  })
+end
+
+5.times do |i|
+  Orcamento.create({
+    funcionario: '#funcionario '+i.to_s,
+    agendamento: '#agendamento',
+    cliente: '#cliente',
+    veiculo: '#veiculo',
+    servico_concluido: true
+  })
+end
+
+5.times do |i|
+  OrcamentoItem.create({
+    orcamento_id: Orcamento.first.id,
+    item_id: Item.first.id,
+    quantidade: i
+  })
+end
+
+5.times do |i|
+  Transacao.create({
+    ordem_servico_id: OrdemServico.first.id,
+    funcionario_id: Funcionario.first.id,
+    data_transacao: Date.today,
+    valor_recebido: 69.69,
+    forma_pagamento: 'a vista'
   })
 end

@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to :categoria_item
 
   validates :codigoFabricante, :nomeItem, :preco, :categoria_item_id, presence: true
-  validates :nomeItem, length: {in: 5..30}, uniqueness: true
-  validates :preco, numericality: {greather_than: 0}  
+  validates :nomeItem, length: { in: 5..30 }, uniqueness: true
+  validates :preco, numericality: { greather_than: 0.01 }  
 
   validate :validade_in_the_future
 

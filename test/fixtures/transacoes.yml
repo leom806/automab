@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ordem_servico: one
+  funcionario: one
+  data_transacao: 2018-05-20
+  valor_recebido: 9.99
+  forma_pagamento: MyString
+
+two:
+  ordem_servico: two
+  funcionario: two
+  data_transacao: 2018-05-20
+  valor_recebido: 9.99
+  forma_pagamento: MyString

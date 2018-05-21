@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  funcionario: one
+  data_solicitacao: 2018-05-18
+  data_agendamento: 2018-05-18
+  entrega_estimada: 2018-05-18
+  descricao: MyText
+
+two:
+  funcionario: two
+  data_solicitacao: 2018-05-18
+  data_agendamento: 2018-05-18
+  entrega_estimada: 2018-05-18
+  descricao: MyText

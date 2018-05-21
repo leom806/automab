@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orcamento: one
+  valor_total: 9.99
+  descricao_servico: MyText
+  observacao: MyText
+  data_criacao: 2018-05-20
+  garantia: MyString
+  status_pagamento: false
+
+two:
+  orcamento: two
+  valor_total: 9.99
+  descricao_servico: MyText
+  observacao: MyText
+  data_criacao: 2018-05-20
+  garantia: MyString
+  status_pagamento: false

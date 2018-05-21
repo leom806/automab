@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :orcamento_items
       resources :orcamentos
       resources :transacoes
+      resources :ordem_servicos
       
     end
   end

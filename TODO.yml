@@ -99,7 +99,7 @@ Momente:
     Update              [ OK ]
     Destroy             [ OK ]
 
-  Ordem Serviço:        [ -- ]
+  Ordem Serviço:        [ OK ]
     - Orçamento 
     - Valor Total
     - Descrição Serviço
@@ -107,10 +107,10 @@ Momente:
     - Data de Criação
     - Garantia
     - Status do Pagamento
-    Create              [ -- ]
-    Read                [ -- ]
-    Update              [ -- ]
-    Destroy             [ -- ]
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
 
   Transação:            [ OK ]
     - Ordem de Serviço

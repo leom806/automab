@@ -112,16 +112,16 @@ Momente:
     Update              [ -- ]
     Destroy             [ -- ]
 
-  Transação:            [ -- ]
+  Transação:            [ OK ]
     - Ordem de Serviço
     - Funcionário
     - Data de Transação
     - Valor Recebido
     - Forma de Pagamento
-    Create              [ -- ]
-    Read                [ -- ]
-    Update              [ -- ]
-    Destroy             [ -- ]
+    Create              [ OK ]
+    Read                [ OK ]
+    Update              [ OK ]
+    Destroy             [ OK ]
 
   Orçamento Item:       [ OK ]
     - Orçamento

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   root 'api/v1/main#api_v1_doc'
-
+  
   namespace 'api' do
     namespace 'v1' do
       
       get '/', to: 'main#api_v1_doc'
-
+      
       resources :categoria_items
       resources :items
       resources :cargos
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :agendamentos
       resources :orcamento_items
       resources :orcamentos
+      resources :transacoes
       
     end
   end

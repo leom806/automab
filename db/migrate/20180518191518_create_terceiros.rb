@@ -3,6 +3,7 @@ class CreateTerceiros < ActiveRecord::Migration[5.1]
     create_table :terceiros do |t|
       t.boolean :juridica
       t.string :inscricao_municipal
+      t.string :inscricao_estadual
       t.string :cpf
       t.string :nome_fantasia
       t.string :cnpj

@@ -1,12 +1,13 @@
 module Api
   module V1
     class ItemsController < ApplicationController
-
+      
       # http_basic_authenticate_with name: "admin", password: "123"
 
       # Query items
       def index
-        items = Item.all
+        items = Item.all       
+
         render json: { status: 'Sucesso', mensagem: 'Items', dados: items }, status: :ok
       end
 
@@ -57,7 +58,8 @@ module Api
 
       def item_params
         params.permit(:codigoFabricante, :nomeItem, :descricao, :validade, :preco, :item_item_id)
-      end
+      end      
+
     end
   end
 end

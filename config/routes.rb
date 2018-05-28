@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'api/v1/main#api_v1_doc'
+  #root 'api/v1/main#api_v1_doc'
   
   namespace 'api' do
     namespace 'v1' do
@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       
     end
   end
+
 end

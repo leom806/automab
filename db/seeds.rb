@@ -1,9 +1,16 @@
 
+Usuario.delete_all
 OrcamentoItem.delete_all
 Orcamento.delete_all
 Item.delete_all
 CategoriaItem.delete_all
 Cargo.delete_all
+
+Usuario.create({
+  nome: "admin",
+  senha: "123",
+  email: "admin@gmail.com"
+})
 
 5.times do |i|
   CategoriaItem.create({
@@ -48,12 +55,12 @@ end
   })
 end
 
-5.times do |i|
-  Transacao.create({
-    ordem_servico_id: OrdemServico.first.id,
-    funcionario_id: Funcionario.first.id,
-    data_transacao: Date.today,
-    valor_recebido: 69.69,
-    forma_pagamento: 'a vista'
-  })
-end
+# 5.times do |i|
+#   Transacao.create({
+#     ordem_servico_id: OrdemServico.first.id,
+#     funcionario_id: Funcionario.first.id,
+#     data_transacao: Date.today,
+#     valor_recebido: 69.69,
+#     forma_pagamento: 'a vista'
+#   })
+# end

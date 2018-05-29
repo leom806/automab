@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :usuarios
   root 'api/v1/main#api_v1_doc'
 
   namespace 'api' do

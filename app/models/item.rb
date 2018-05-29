@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
 
-  belongs_to :categoria_item
+  # belongs_to :categoria_item
 
-  validates :codigoFabricante, :nomeItem, :preco, :categoria_item_id, presence: true
+  validates :codigoFabricante, :nomeItem, :preco, presence: true
   validates :nomeItem, length: { in: 5..30 }, uniqueness: true
   validates :preco, numericality: { greather_than: 0.01 }  
 

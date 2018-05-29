@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521001257) do
+ActiveRecord::Schema.define(version: 20180529004308) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -34,6 +34,24 @@ ActiveRecord::Schema.define(version: 20180521001257) do
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "terceiro_id"
+    t.string "cep"
+    t.string "logradouro"
+    t.string "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "cidade"
+    t.string "uf"
+    t.string "telefone"
+    t.string "celular"
+    t.string "email"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["terceiro_id"], name: "index_enderecos_on_terceiro_id", unique: true
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -106,6 +124,15 @@ ActiveRecord::Schema.define(version: 20180521001257) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nome"
+    t.string "email"
+    t.string "senha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "enderecos", "terceiros"
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"
   add_foreign_key "orcamento_items", "orcamentos"

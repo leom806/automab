@@ -130,7 +130,7 @@ Momente:
     Create              [ OK ]
     Read                [ OK ]
     Update              [ OK ]
-    Destroy             [ OK ]
+    Destroy             [ OK ] 
 
   Orçamento:            [ OK ]
     - Funcionário

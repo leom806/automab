@@ -11,6 +11,6 @@ class Orcamento < ApplicationRecord
   # has_one :cliente
   # has_one :veiculo
 
-  validates :funcionario, :agendamento, :cliente, :veiculo, :servico_concluido, presence: true
+  validates :funcionario, :agendamento, :cliente, :veiculo, presence: true
 
 end

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::API
 
 
   def create
-    @element = current_model.new( element_params )
+    @element = current_model.new( element_params )    
 
     if @element.save then render_data @element else render_error end
   end
@@ -96,13 +96,16 @@ class ApplicationController < ActionController::API
   # retorna os parametros definidos por whitelist no controller original, se houver
   def element_params
     begin
-      return params.permit current_controller.send("#{controller_name}_params")
+      ##### DESCOMENTAR QUANDO ESTIVERMOS USANDO OS RELACIONAMENTOS #####
+      # whitelist = current_controller.send("#{controller_name}_params") 
+      whitelist = current_model.column_names # paliativo
     rescue
       logger.info("================================================")
       logger.info("#{controller} does not have a params whitelist!")
       logger.info("================================================")
-      {}
-    end    
+      whitelist = current_model.column_names
+    end        
+    params.permit whitelist 
   end
 
 end

@@ -1,51 +1,21 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: [:show, :update, :destroy]
 
-  # GET /usuarios
+  # garante que apenas usuários acessem 
+  
+  before_action :authenticate
+
+  # Impede que qualquer um veja as senhas dos usuários
+
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.all.select :id, :nome, :email
 
-    render json: @usuarios
+    render_data @usuarios
   end
 
-  # GET /usuarios/1
   def show
-    render json: @usuario
+    @usuario = Usuario.select( :id, :nome, :email ).find params[:id]
+    
+    render_data @usuario
   end
 
-  # POST /usuarios
-  def create
-    @usuario = Usuario.new(usuario_params)
-
-    if @usuario.save
-      render json: @usuario, status: :created, location: @usuario
-    else
-      render json: @usuario.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /usuarios/1
-  def update
-    if @usuario.update(usuario_params)
-      render json: @usuario
-    else
-      render json: @usuario.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /usuarios/1
-  def destroy
-    @usuario.destroy
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_usuario
-      @usuario = Usuario.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def usuario_params
-      params.require(:usuario).permit(:nome, :email, :senha)
-    end
 end

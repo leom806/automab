@@ -9,11 +9,10 @@ class ApplicationController < ActionController::API
   end
 
   def current_user    
-    @usuario ||=  Usuario.where(nome: params[:login], senha: params[:senha]).first
+    @usuario ||= Usuario.where(nome: params[:login], senha: params[:senha]).first
   end
 
   # ========================================================================== #
-
   @element ||= nil
 
   # CRUD genérico

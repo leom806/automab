@@ -1,3 +1,3 @@
 class Endereco < ApplicationRecord
-  has_one :terceiro
+  # belongs_to :terceiros
 end

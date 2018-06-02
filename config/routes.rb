@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :veiculos
   resources :usuarios
   
   root 'api/v1/main#api_v1_doc'
-
+  
   namespace 'api' do
     namespace 'v1' do
       
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
       resources :transacaos
       resources :ordem_servicos
       resources :enderecos
+      resources :veiculos
       
     end
   end

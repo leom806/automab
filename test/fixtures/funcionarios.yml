@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  terceiro: one
+  cargo: one
+  status_pagamento: false
+
+two:
+  terceiro: two
+  cargo: two
+  status_pagamento: false

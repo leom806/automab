@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :funcionarios
   resources :clientes
   resources :veiculos
   resources :usuarios

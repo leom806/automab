@@ -1,6 +1,6 @@
 class Cliente < Terceiro
   belongs_to :terceiro
-  belongs_to :veiculo
+  has_many :veiculos
   
-  validates :terceiro, :veiculo, presence: true
+  validates :terceiro, presence: true
 end

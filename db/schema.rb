@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601194309) do
+ActiveRecord::Schema.define(version: 20180602024709) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20180601194309) do
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "terceiro_id"
+    t.bigint "veiculo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["terceiro_id"], name: "index_clientes_on_terceiro_id"
+    t.index ["veiculo_id"], name: "index_clientes_on_veiculo_id"
   end
 
   create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -133,6 +142,23 @@ ActiveRecord::Schema.define(version: 20180601194309) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "veiculos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "montadora"
+    t.string "modelo"
+    t.string "versao"
+    t.string "placa"
+    t.string "chassi"
+    t.date "ano_fabricacao"
+    t.date "ano_modelo"
+    t.string "combustivel"
+    t.integer "quilometragem"
+    t.string "cor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "clientes", "terceiros"
+  add_foreign_key "clientes", "veiculos"
   add_foreign_key "enderecos", "terceiros"
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"

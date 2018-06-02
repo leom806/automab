@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   resources :usuarios
   
   root 'api/v1/main#api_v1_doc'
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       resources :ordem_servicos
       resources :enderecos
       resources :veiculos
+      resources :clientes
+      resources :funcionarios
       
     end
   end

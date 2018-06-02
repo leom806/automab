@@ -1,5 +1,5 @@
 class Veiculo < ApplicationRecord
-  validates :placa, :quilometragem, presence: true
+  validates :placa, :quilometragem, :cliente, presence: true
   validates :quilometragem, numericality: {greather_than: 0}
 
   validates_format_of :ano_fabricacao, :ano_modelo, with: /((1|2)\d{3})/, allow_blank: true

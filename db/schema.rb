@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602023948) do
+ActiveRecord::Schema.define(version: 20180602040803) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20180602023948) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "terceiro_id"
+    t.bigint "veiculo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["terceiro_id"], name: "index_clientes_on_terceiro_id"
+    t.index ["veiculo_id"], name: "index_clientes_on_veiculo_id"
+  end
+
   create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "cep"
     t.string "logradouro"
@@ -52,6 +61,16 @@ ActiveRecord::Schema.define(version: 20180602023948) do
     t.datetime "updated_at", null: false
     t.bigint "terceiro_id"
     t.index ["terceiro_id"], name: "index_enderecos_on_terceiro_id"
+  end
+
+  create_table "funcionarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "terceiro_id"
+    t.bigint "cargo_id"
+    t.boolean "status_pagamento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"
+    t.index ["terceiro_id"], name: "index_funcionarios_on_terceiro_id"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -146,10 +165,17 @@ ActiveRecord::Schema.define(version: 20180602023948) do
     t.integer "quilometragem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cliente_id"
+    t.index ["cliente_id"], name: "index_veiculos_on_cliente_id"
   end
 
+  add_foreign_key "clientes", "terceiros"
+  add_foreign_key "clientes", "veiculos"
   add_foreign_key "enderecos", "terceiros"
+  add_foreign_key "funcionarios", "cargos"
+  add_foreign_key "funcionarios", "terceiros"
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"
   add_foreign_key "orcamento_items", "orcamentos"
+  add_foreign_key "veiculos", "clientes"
 end

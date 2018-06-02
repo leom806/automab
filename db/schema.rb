@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529004308) do
+ActiveRecord::Schema.define(version: 20180601194309) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180529004308) do
   end
 
   create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "terceiro_id"
     t.string "cep"
     t.string "logradouro"
     t.string "numero"
@@ -51,7 +50,8 @@ ActiveRecord::Schema.define(version: 20180529004308) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["terceiro_id"], name: "index_enderecos_on_terceiro_id", unique: true
+    t.bigint "terceiro_id"
+    t.index ["terceiro_id"], name: "index_enderecos_on_terceiro_id"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20180529004308) do
   create_table "terceiros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "juridica"
     t.string "inscricao_municipal"
+    t.string "inscricao_estadual"
     t.string "cpf"
     t.string "nome_fantasia"
     t.string "cnpj"

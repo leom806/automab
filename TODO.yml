@@ -8,7 +8,7 @@ Breno:
     Update              [ OK ]
     Destroy             [ OK ]
 
-  Terceiro:
+  Terceiro:             [ OK ]
     - Juridica
     - Inscrição Municipal
     - CPF
@@ -24,7 +24,7 @@ Breno:
     Update              [ -- ]
     Destroy             [ -- ]
 
-  Endereço:
+  Endereço:             [ OK ]
     - Terceiro
     - CEP
     - Logradouro

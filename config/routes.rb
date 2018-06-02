@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :orcamentos
       resources :transacaos
       resources :ordem_servicos
+      resources :enderecos
       
     end
   end

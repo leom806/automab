@@ -6,11 +6,11 @@ class CreateVeiculos < ActiveRecord::Migration[5.1]
       t.string  :versao
       t.string  :placa
       t.string  :chassi
-      t.date    :ano_fabricacao
-      t.date    :ano_modelo
       t.string  :combustivel
-      t.integer :quilometragem
       t.string  :cor
+      t.integer :ano_modelo
+      t.integer :ano_fabricacao
+      t.integer :quilometragem
 
       t.timestamps
     end

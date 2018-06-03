@@ -7,13 +7,16 @@ module Api
       def api_v1_doc
         
         doc = {
-          versao: "v1.0",
+          version: "v1.0",
           runtime: `ruby -v`,
           rails_version: `rails -v`,
-          environment: Rails.env
+          environment: Rails.env,
+          last_commit_hash: `git show-ref`.split.first,
+          current_user: (current_user.blank? ? "visitante" : current_user.nome),
+          axioma_da_existencia: "Rails > .NET"
         }
 
-        render json: {"Documentação API": doc }, status: :ok
+        render json: {"Documentação da API": doc }, status: :ok
       end
     end
   end

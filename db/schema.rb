@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602024709) do
+ActiveRecord::Schema.define(version: 20180602035809) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20180602024709) do
     t.datetime "updated_at", null: false
     t.bigint "terceiro_id"
     t.index ["terceiro_id"], name: "index_enderecos_on_terceiro_id"
+  end
+
+  create_table "funcionarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "terceiro_id"
+    t.bigint "cargo_id"
+    t.boolean "status_pagamento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"
+    t.index ["terceiro_id"], name: "index_funcionarios_on_terceiro_id"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -160,6 +170,8 @@ ActiveRecord::Schema.define(version: 20180602024709) do
   add_foreign_key "clientes", "terceiros"
   add_foreign_key "clientes", "veiculos"
   add_foreign_key "enderecos", "terceiros"
+  add_foreign_key "funcionarios", "cargos"
+  add_foreign_key "funcionarios", "terceiros"
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"
   add_foreign_key "orcamento_items", "orcamentos"

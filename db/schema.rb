@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180602035809) do
-=======
 ActiveRecord::Schema.define(version: 20180602040803) do
->>>>>>> 55080d2cf66c6cd6c71ac36fe34bf591875a05ce
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -41,11 +37,9 @@ ActiveRecord::Schema.define(version: 20180602040803) do
   end
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "terceiro_id"
     t.bigint "veiculo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["terceiro_id"], name: "index_clientes_on_terceiro_id"
     t.index ["veiculo_id"], name: "index_clientes_on_veiculo_id"
   end
 
@@ -68,13 +62,11 @@ ActiveRecord::Schema.define(version: 20180602040803) do
   end
 
   create_table "funcionarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "terceiro_id"
     t.bigint "cargo_id"
     t.boolean "status_pagamento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"
-    t.index ["terceiro_id"], name: "index_funcionarios_on_terceiro_id"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -129,11 +121,11 @@ ActiveRecord::Schema.define(version: 20180602040803) do
     t.string "nome_fantasia"
     t.string "cnpj"
     t.date "data_ultima_alteracao"
-    t.string "tipo_terceiro"
     t.date "data_cadastro"
     t.string "rg"
     t.date "data_nascimento"
     t.string "nome_completo"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -173,11 +165,9 @@ ActiveRecord::Schema.define(version: 20180602040803) do
     t.index ["cliente_id"], name: "index_veiculos_on_cliente_id"
   end
 
-  add_foreign_key "clientes", "terceiros"
   add_foreign_key "clientes", "veiculos"
-  add_foreign_key "enderecos", "terceiros"
+  add_foreign_key "enderecos", "terceiros", on_delete: :cascade
   add_foreign_key "funcionarios", "cargos"
-  add_foreign_key "funcionarios", "terceiros"
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"
   add_foreign_key "orcamento_items", "orcamentos"

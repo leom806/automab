@@ -1,7 +1,7 @@
 class Terceiro < ApplicationRecord
   has_one :endereco
 
-  validates :tipo_terceiro, presence: true
+  validates :type, presence: true
   validates :inscricao_municipal, :inscricao_estadual, :nome_fantasia, :cnpj, presence: true, if: :is_third_party?
   validates :nome_completo, :rg, :cpf, :data_nascimento, presence: true, if: :is_not_third_party?
   validates :rg, length: { is: 9 }, if: :is_not_third_party?

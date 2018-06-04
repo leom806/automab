@@ -1,4 +1,3 @@
-class Funcionario < ApplicationRecord
-  belongs_to :terceiro
-  has_one :cargo
+class Funcionario < Terceiro
+  belongs_to :cargo
 end

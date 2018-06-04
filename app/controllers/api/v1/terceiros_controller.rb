@@ -51,7 +51,7 @@ module Api
       # private
 
       #   def terceiro_params
-      #     params.permit(:juridica, :inscricao_municipal, :cpf, :nome_fantasia, :cnpj, :data_ultima_alteracao, :tipo_terceiro, :data_cadastro, :rg, :data_nascimento)
+      #     params.permit(:juridica, :inscricao_municipal, :cpf, :nome_fantasia, :cnpj, :data_ultima_alteracao, :data_cadastro, :rg, :data_nascimento)
       #   end
     end
   end

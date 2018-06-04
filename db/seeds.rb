@@ -1,7 +1,7 @@
 
 Usuario.delete_all
-Terceiro.delete_all
 Endereco.delete_all
+Terceiro.delete_all
 OrcamentoItem.delete_all
 Orcamento.delete_all
 Item.delete_all
@@ -72,13 +72,24 @@ end
   Terceiro.create({
     juridica: false,
     cpf: rand(11111111111...99999999999).to_s,
-    tipo_terceiro: "Cliente",
+    type: "Cliente",
     data_cadastro: Time.zone.now,
     rg: rand(111111111...999999999),
     data_nascimento: '17/09/1997',
     nome_completo: 'Terceiro Genérico'
   })
 end
+
+Terceiro.create({
+  juridica: false,
+  cpf: rand(11111111111...99999999999).to_s,
+  data_cadastro: Time.zone.now,
+  type: "Funcionario",
+  rg: rand(111111111...999999999),
+  data_nascimento: '17/09/1997',
+  nome_completo: 'Terceiro Genérico',
+  cargo_id: Cargo.first.id
+})
 
 5.times do |i|
   Endereco.create({

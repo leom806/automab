@@ -16,7 +16,7 @@ module Api
           axioma_da_existencia: "Rails > .NET"
         }
 
-        render json: {"Documentação da API": doc }, status: :ok
+        render json: {"Documentação da API": doc }, status: :ok 
       end
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602040803) do
+ActiveRecord::Schema.define(version: 20180602035809) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -121,11 +121,11 @@ ActiveRecord::Schema.define(version: 20180602040803) do
     t.string "nome_fantasia"
     t.string "cnpj"
     t.date "data_ultima_alteracao"
+    t.string "tipo_terceiro"
     t.date "data_cadastro"
     t.string "rg"
     t.date "data_nascimento"
     t.string "nome_completo"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -161,8 +161,6 @@ ActiveRecord::Schema.define(version: 20180602040803) do
     t.integer "quilometragem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cliente_id"
-    t.index ["cliente_id"], name: "index_veiculos_on_cliente_id"
   end
 
   add_foreign_key "clientes", "veiculos"
@@ -171,5 +169,4 @@ ActiveRecord::Schema.define(version: 20180602040803) do
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"
   add_foreign_key "orcamento_items", "orcamentos"
-  add_foreign_key "veiculos", "clientes"
 end

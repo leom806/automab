@@ -1,7 +1,7 @@
 
 Usuario.delete_all
 Endereco.delete_all
-Terceiro.delete_all
+# Terceiro.delete_all
 OrcamentoItem.delete_all
 Orcamento.delete_all
 Item.delete_all
@@ -69,7 +69,7 @@ end
 
 
 5.times do |i|
-  Terceiro.create({
+  Cliente.create({
     juridica: false,
     cpf: rand(11111111111...99999999999).to_s,
     type: "Cliente",
@@ -80,7 +80,7 @@ end
   })
 end
 
-Terceiro.create({
+Funcionario.create({
   juridica: false,
   cpf: rand(11111111111...99999999999).to_s,
   data_cadastro: Time.zone.now,
@@ -93,7 +93,7 @@ Terceiro.create({
 
 5.times do |i|
   Endereco.create({
-    terceiro_id: Terceiro.first.id,
+    terceiro_id: Cliente.first.id,
     cep: rand(11111111...99999999).to_s,
     logradouro: 'Rua do Momente Lindo',
     numero: rand(111...999).to_s,

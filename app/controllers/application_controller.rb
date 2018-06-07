@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
 
-  before_action :authenticate, except: [:index, :show]
+  # Sem autenticação porque o japa é um chorão
+  # before_action :authenticate, except: [:index, :show]
 
   def authenticate    
     if current_user.blank?

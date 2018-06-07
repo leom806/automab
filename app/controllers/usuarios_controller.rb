@@ -2,7 +2,7 @@ class UsuariosController < ApplicationController
 
   # garante que apenas usuários acessem 
   
-  before_action :authenticate
+  # before_action :authenticate
 
   # Impede que qualquer um veja as senhas dos usuários
 

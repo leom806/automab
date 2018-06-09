@@ -1,3 +1,3 @@
-class Funcionario < Terceiro
+class Funcionario < ApplicationRecord
   belongs_to :cargo
 end

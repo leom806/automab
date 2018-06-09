@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602035809) do
+ActiveRecord::Schema.define(version: 20180602040803) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "funcionario"
@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(version: 20180602035809) do
   end
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "veiculo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["veiculo_id"], name: "index_clientes_on_veiculo_id"
   end
 
   create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,11 +60,9 @@ ActiveRecord::Schema.define(version: 20180602035809) do
   end
 
   create_table "funcionarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "cargo_id"
     t.boolean "status_pagamento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -113,23 +109,6 @@ ActiveRecord::Schema.define(version: 20180602035809) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "terceiros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "juridica"
-    t.string "inscricao_municipal"
-    t.string "inscricao_estadual"
-    t.string "cpf"
-    t.string "nome_fantasia"
-    t.string "cnpj"
-    t.date "data_ultima_alteracao"
-    t.string "tipo_terceiro"
-    t.date "data_cadastro"
-    t.string "rg"
-    t.date "data_nascimento"
-    t.string "nome_completo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "transacoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "ordem_servico"
     t.string "funcionario"
@@ -161,12 +140,12 @@ ActiveRecord::Schema.define(version: 20180602035809) do
     t.integer "quilometragem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cliente_id"
+    t.index ["cliente_id"], name: "index_veiculos_on_cliente_id"
   end
 
-  add_foreign_key "clientes", "veiculos"
-  add_foreign_key "enderecos", "terceiros", on_delete: :cascade
-  add_foreign_key "funcionarios", "cargos"
   add_foreign_key "items", "categoria_items"
   add_foreign_key "orcamento_items", "items"
   add_foreign_key "orcamento_items", "orcamentos"
+  add_foreign_key "veiculos", "clientes"
 end

@@ -3,11 +3,11 @@ class ApplicationController < ActionController::API
   # Sem autenticação porque o japa é um chorão
   # before_action :authenticate, except: [:index, :show]
 
-  def authenticate    
-    if current_user.blank?
-      render_unauthorized 
-    end
-  end
+  # def authenticate    
+  #   if current_user.blank?
+  #     render_unauthorized 
+  #   end
+  # end
 
   def current_user    
     @usuario ||= Usuario.where(nome: params[:login], senha: params[:senha]).first

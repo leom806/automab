@@ -1,3 +1,2 @@
-class Endereco < ApplicationRecord
-  # belongs_to :terceiros
+class Endereco < ApplicationRecord  
 end

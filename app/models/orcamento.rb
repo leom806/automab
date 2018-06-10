@@ -1,15 +1,9 @@
 class Orcamento < ApplicationRecord
   
-  # Funcionário
-  # Agendamento
-  # Cliente
-  # Serviço Concluído
-  # Veículo
-  
-  # has_one :funcionario
-  # has_one :agendamento
-  # has_one :cliente
-  # has_one :veiculo
+  belongs_to :funcionario
+  belongs_to :agendamento
+  belongs_to :cliente
+  belongs_to :veiculo
 
   validates :funcionario, :agendamento, :cliente, :veiculo, presence: true
 

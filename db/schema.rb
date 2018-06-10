@@ -13,13 +13,14 @@
 ActiveRecord::Schema.define(version: 20180602040803) do
 
   create_table "agendamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "funcionario"
+    t.bigint "funcionario_id"
     t.date "data_solicitacao"
     t.date "data_agendamento"
     t.date "entrega_estimada"
     t.text "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["funcionario_id"], name: "index_agendamentos_on_funcionario_id"
   end
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,8 +38,21 @@ ActiveRecord::Schema.define(version: 20180602040803) do
   end
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "juridica"
+    t.string "inscricao_municipal"
+    t.string "inscricao_estadual"
+    t.string "cpf"
+    t.string "nome_fantasia"
+    t.string "cnpj"
+    t.date "data_ultima_alteracao"
+    t.date "data_cadastro"
+    t.string "rg"
+    t.date "data_nascimento"
+    t.string "nome_completo"
+    t.bigint "veiculo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["veiculo_id"], name: "index_clientes_on_veiculo_id"
   end
 
   create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,27 +67,42 @@ ActiveRecord::Schema.define(version: 20180602040803) do
     t.string "celular"
     t.string "email"
     t.string "website"
+    t.bigint "cliente_id"
+    t.bigint "funcionario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "terceiro_id"
-    t.index ["terceiro_id"], name: "index_enderecos_on_terceiro_id"
+    t.index ["cliente_id"], name: "index_enderecos_on_cliente_id"
+    t.index ["funcionario_id"], name: "index_enderecos_on_funcionario_id"
   end
 
   create_table "funcionarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "juridica"
+    t.string "inscricao_municipal"
+    t.string "inscricao_estadual"
+    t.string "cpf"
+    t.string "nome_fantasia"
+    t.string "cnpj"
+    t.date "data_ultima_alteracao"
+    t.date "data_cadastro"
+    t.string "rg"
+    t.date "data_nascimento"
+    t.string "nome_completo"
+    t.bigint "cargo_id"
     t.boolean "status_pagamento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "codigoFabricante"
+    t.string "codigo_fabricante"
     t.string "nomeItem"
     t.string "descricao"
     t.date "validade"
     t.decimal "preco", precision: 8, scale: 2
+    t.bigint "categoria_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "categoria_item_id"
     t.index ["categoria_item_id"], name: "index_items_on_categoria_item_id"
   end
 
@@ -88,35 +117,42 @@ ActiveRecord::Schema.define(version: 20180602040803) do
   end
 
   create_table "orcamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "funcionario"
-    t.string "agendamento"
-    t.string "cliente"
-    t.string "veiculo"
+    t.bigint "funcionario_id"
+    t.bigint "agendamento_id"
+    t.bigint "cliente_id"
+    t.bigint "veiculo_id"
     t.boolean "servico_concluido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["agendamento_id"], name: "index_orcamentos_on_agendamento_id"
+    t.index ["cliente_id"], name: "index_orcamentos_on_cliente_id"
+    t.index ["funcionario_id"], name: "index_orcamentos_on_funcionario_id"
+    t.index ["veiculo_id"], name: "index_orcamentos_on_veiculo_id"
   end
 
   create_table "ordem_servicos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "orcamento"
     t.decimal "valor_total", precision: 10, scale: 2
     t.text "descricao_servico"
     t.text "observacao"
     t.date "data_criacao"
     t.string "garantia"
     t.boolean "status_pagamento"
+    t.bigint "orcamento_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["orcamento_id"], name: "index_ordem_servicos_on_orcamento_id"
   end
 
-  create_table "transacoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "ordem_servico"
-    t.string "funcionario"
+  create_table "transacaos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "data_transacao"
     t.decimal "valor_recebido", precision: 10, scale: 2
     t.string "forma_pagamento"
+    t.bigint "ordem_servico_id"
+    t.bigint "funcionario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["funcionario_id"], name: "index_transacaos_on_funcionario_id"
+    t.index ["ordem_servico_id"], name: "index_transacaos_on_ordem_servico_id"
   end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -144,8 +180,4 @@ ActiveRecord::Schema.define(version: 20180602040803) do
     t.index ["cliente_id"], name: "index_veiculos_on_cliente_id"
   end
 
-  add_foreign_key "items", "categoria_items"
-  add_foreign_key "orcamento_items", "items"
-  add_foreign_key "orcamento_items", "orcamentos"
-  add_foreign_key "veiculos", "clientes"
 end

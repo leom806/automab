@@ -1,4 +1,7 @@
 class Veiculo < ApplicationRecord
+
+  belongs_to :cliente
+
   validates :placa, :quilometragem, :cliente, presence: true
   validates :quilometragem, numericality: {greather_than: 0}
 

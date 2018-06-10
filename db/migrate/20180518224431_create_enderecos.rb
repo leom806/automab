@@ -12,6 +12,8 @@ class CreateEnderecos < ActiveRecord::Migration[5.1]
       t.string :celular
       t.string :email
       t.string :website
+      t.references :cliente, index: true
+      t.references :funcionario, index: true
 
       t.timestamps
     end

@@ -1,21 +1,13 @@
 class Agendamento < ApplicationRecord
   
-  # Funcionário
-  # Data de Solicitação
-  # Data Agendada
-  # Entrega Estimada
-  # Descrição
-  
   has_one :funcionario
 
-  validates :data_solicitacao, :data_agendada, :funcionario, presence: true     
+  validates :data_solicitacao, :data_agendamento, :funcionario_id, presence: true     
 
   validate :validade_in_the_future
 
   def validade_in_the_future
-    if data_agendada.present? && data_agendada > data_solicitacao
-      errors.add(:data_agendada, "A data deve ser posterior a data de solicitação.")
-    end
+    errors.add(:data_agendamento, "A data deve ser posterior ou igual a data de solicitação.") if data_agendamento >= data_solicitacao 
   end
 
 end

@@ -18,8 +18,26 @@ Veiculo.delete_all
 #   email: "admin@gmail.com"
 # })
 
-require 'date'
-chars = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ0123456789'
+
+def chars
+  'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
+end
+
+def numbers 
+  '0123456789'
+end
+
+def charset 
+  chars + numbers
+end
+
+def gerar_placa
+  (0...3).map { chars[rand(chars.size)] }.join + (0...4).map { numbers[rand(numbers.size)] }.join
+end
+
+def gerar_chassi
+  (0...17).map { charset[rand(charset.size)] } .join
+end
 
 5.times do |i|
 
@@ -36,8 +54,8 @@ chars = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ0123456789'
     montadora: ["Volkswagen", "GM", "Porsche", "Nissan"][rand(0..3)],
     modelo: "Modelo",
     versao: "Versão",
-    placa: "xxx1234",
-    chassi: (0...17).map { chars[rand(chars.size)] } .join,
+    placa: gerar_placa,
+    chassi: gerar_chassi,
     combustivel: ["Gasolina", "Álcool"][rand(2)],
     cor: ["Preto", "Prata"][rand(2)],
     ano_modelo: Date.today.to_s,

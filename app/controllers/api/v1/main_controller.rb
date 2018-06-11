@@ -19,6 +19,7 @@ module Api
       end
 
       def index
+        @veiculos = Veiculo.includes(:cliente)
         render template: 'home/index'
       end
 

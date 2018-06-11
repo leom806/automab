@@ -1,9 +1,11 @@
 
+<table>
+<% veiculos.each do |veiculo| %>
   <tr>
     <td><%= veiculo.cliente.nome_completo %> |</td>
     <td> CPF: <%= veiculo.cliente.cpf %></td>
     <td><%= veiculo.montadora %></td>
     <td><%= veiculo.placa %></td>
   </tr>
-
-
+<% end %>
+</table>

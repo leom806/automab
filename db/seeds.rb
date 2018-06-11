@@ -138,7 +138,7 @@ end
     valor_total: rand(10..10000),
     descricao_servico: "Descrição",
     observacao: "Observação",
-    data_criacao: Date.today.to_s,
+    data_criacao: (Date.today + rand(15)).to_s,
     garantia: "3 meses ou 5.000km",
     status_pagamento: true
   })

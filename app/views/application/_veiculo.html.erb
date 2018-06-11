@@ -1,1 +1,9 @@
-<%= content_tag 'div', veiculo.placa %>
+
+  <tr>
+    <td><%= veiculo.cliente.nome_completo %> |</td>
+    <td> CPF: <%= veiculo.cliente.cpf %></td>
+    <td><%= veiculo.montadora %></td>
+    <td><%= veiculo.placa %></td>
+  </tr>
+
+

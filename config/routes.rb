@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   
   resources :usuarios
   
-  root 'api/v1/main#api_v1_doc'
+  root 'api/v1/main#index', as: 'home'
   
   namespace 'api' do
     namespace 'v1' do
       
-      get '/', to: 'main#api_v1_doc'
+      get '/', to: 'main#index'
       
       resources :categoria_items
       resources :items

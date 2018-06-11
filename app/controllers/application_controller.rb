@@ -1,4 +1,5 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
 
   # Sem autenticação porque o japa é um chorão
   # before_action :authenticate, except: [:index, :show]
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::API
 
   # CRUD genérico
   def index
-    render_data current_model.all
+    render_data current_model.all    
   end
 
 
@@ -107,5 +108,4 @@ class ApplicationController < ActionController::API
     end        
     params.permit whitelist 
   end
-
 end

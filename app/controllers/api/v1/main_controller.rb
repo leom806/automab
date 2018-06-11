@@ -2,10 +2,9 @@ module Api
   module V1
     class MainController < ApplicationController
 
-      skip_before_action :authenticate
+      # skip_before_action :authenticate
       
-      def api_v1_doc
-        
+      def api_v1_doc  
         doc = {
           version: "v1.0",
           runtime: `ruby -v`,
@@ -18,6 +17,11 @@ module Api
 
         render json: {"Documentação da API": doc }, status: :ok 
       end
+
+      def index
+        render template: 'home/index'
+      end
+
     end
   end
 end

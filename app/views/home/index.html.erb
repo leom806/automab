@@ -1,5 +1,53 @@
-AOOOOOO POTENCIA!
+<div class="sidenav">
+  <a href="#">Home</a>
+  <a href="#">Agendamento</a>
+  <a href="#">Orçamento</a>
+  <a href="#">Ordem de Serviço</a>
+  <button class="dropdown-btn">Cadastrar 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Clientes</a>
+    <a href="#">Funcionários</a>
+    <a href="#">Cargos</a>
+    <a href="#">Categorias de Item</a>
+    <a href="#">Itens</a>
+    <a href="#">Veículos</a>
+  </div>
+  <button class="dropdown-btn">Consultar 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Clientes</a>
+    <a href="#">Funcionários</a>
+    <a href="#">Cargos</a>
+    <a href="#">Categorias de Item</a>
+    <a href="#">Itens</a>
+    <a href="#">Veículos</a>
+  </div>
+</div>
 
-<table>
-<%= render partial: 'veiculo', collection: Veiculo.all %>
-</table>
+<div class="main">
+  <h2>Sidebar Dropdown</h2>
+  <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
+  <p>This sidebar is of full height (100%) and always shown.</p>
+  <p>Some random text..</p>
+</div>
+
+<script>
+  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>

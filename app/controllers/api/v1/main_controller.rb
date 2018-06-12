@@ -18,8 +18,7 @@ module Api
         render json: {"Documentação da API": doc }, status: :ok 
       end
 
-      def index
-        @veiculos = Veiculo.includes(:cliente)
+      def index        
         render template: 'home/index'
       end
 

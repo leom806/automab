@@ -1,4 +1,12 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-/*
-*= require_tree
-**/
+@import "/\*";
+
+
+/* Main content */
+#main {
+  margin-left: 10em; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}

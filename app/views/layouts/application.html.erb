@@ -6,40 +6,43 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
 
-  <body>
-
-    <div class="sidenav">
-      <a href="">Home</a>
-      <a href="">Agendamento</a>
-      <a href="">Orçamento</a>
-      <a href="">Ordem de Serviço</a>
-      <button class="dropdown-btn">Cadastrar 
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-container">
-        <a href="">Clientes</a>
-        <a href="">Funcionários</a>
-        <a href="">Cargos</a>
-        <a href="">Categorias de Item</a>
-        <a href="">Itens</a>
-        <a href="">Veículos</a>
+  <body class="<%= controller.controller_name %>">
+    <% cache do %>
+      <div class="sidenav">
+        <h1 class='automab'>  AutoMAB</h1>
+        <a href="">Home</a>
+        <a href="">Agendamento</a>
+        <a href="">Orçamento</a>
+        <a href="">Ordem de Serviço</a>
+        <button class="dropdown-btn">Cadastrar 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="">Clientes</a>
+          <a href="">Funcionários</a>
+          <a href="">Cargos</a>
+          <a href="">Categorias de Item</a>
+          <a href="">Itens</a>
+          <a href="">Veículos</a>
+        </div>
+        <button class="dropdown-btn">Consultar 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="">Clientes</a>
+          <a href="">Funcionários</a>
+          <a href="">Cargos</a>
+          <a href="">Categorias de Item</a>
+          <a href="">Itens</a>          
+          <%= link_to 'Veículos', veiculos_path %> 
+        </div>
       </div>
-      <button class="dropdown-btn">Consultar 
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-container">
-        <a href="">Clientes</a>
-        <a href="">Funcionários</a>
-        <a href="">Cargos</a>
-        <a href="">Categorias de Item</a>
-        <a href="">Itens</a>
-        <a href="">Veículos</a>
-      </div>
-    </div>
+    <% end %>
 
-    <div class="main">
+    <div id="main">
       <%= yield %>
     </div>
     

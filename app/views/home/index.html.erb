@@ -1,2 +1,9 @@
 
-<%= render partial: 'veiculos', object: @veiculos %>
+<div class="main">  
+  <% cache do %>
+    <%= line_chart OrdemServico.group_by_day(:data_criacao).count %>
+    <%= column_chart Veiculo.group(:montadora).count %>
+    <%= pie_chart Cliente.group(:juridica).count %>
+  <% end %>
+</div>
+

@@ -47,7 +47,7 @@ end
     data_cadastro: Time.zone.now,
     rg: rand(111111111...999999999),
     data_nascimento: '17/09/1997',
-    nome_completo: 'Cliente'
+    nome_completo: ['Fulano', 'Ciclano', 'Beltrano'][rand(3)]
   })
 
   veiculo = Veiculo.create!({
@@ -105,7 +105,7 @@ end
     data_cadastro: Time.zone.now,    
     rg: rand(111111111...999999999),
     data_nascimento: Date.new(1997, 9, 17).to_s,
-    nome_completo: 'Funcionário',
+    nome_completo: ['Fulano', 'Ciclano', 'Beltrano'][rand(3)],
     cargo_id: cargo.id
   })
 
@@ -138,7 +138,7 @@ end
     valor_total: rand(10..10000),
     descricao_servico: "Descrição",
     observacao: "Observação",
-    data_criacao: Date.today.to_s,
+    data_criacao: (Date.today + rand(15)).to_s,
     garantia: "3 meses ou 5.000km",
     status_pagamento: true
   })

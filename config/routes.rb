@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   
   root 'api/v1/main#index', as: 'home'
   
-  namespace 'api' do
-    namespace 'v1' do
+  scope module: 'api' do
+    scope module: 'v1' do
       
       get '/', to: 'main#index'
       

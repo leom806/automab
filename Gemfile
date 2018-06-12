@@ -31,8 +31,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 
+# JQuery 3
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.0.0.alpha3'
+# Bootstrap 4
+gem 'bootstrap-sass'
+# Use Chartkick
+gem 'chartkick'
+# Use Groupdate
+gem 'groupdate'
 
 
 # Use Capistrano for deployment

@@ -23,15 +23,15 @@
     
       <tr>
         <td><%= f.label :nome %></td>
-        <td><%= f.text_field :nome %></td>
+        <td><%= f.text_field :nome, class: 'form-control' %></td>
     
         <td><%= f.label :salario %></td>
-        <td><%= f.text_field :salario %></td>
+        <td><%= f.text_field :salario, class: 'form-control' %></td>
       </tr>
     
       <tr>
         <td><%= f.label :descricao %></td>
-        <td colspan="2"><%= f.text_area :descricao %></td>
+        <td colspan="2"><%= f.text_area :descricao, class: 'form-control' %></td>
       </tr>
 
     </table>

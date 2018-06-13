@@ -22,39 +22,39 @@
     
       <tr>
         <td><%= f.label :nome_completo %></td>
-        <td><%= f.text_field :nome_completo %></td>
+        <td><%= f.text_field :nome_completo, class: 'form-control' %></td>
     
         <td><%= f.label :nome_fantasia %></td>
-        <td><%= f.text_field :nome_fantasia %></td>
+        <td><%= f.text_field :nome_fantasia, class: 'form-control' %></td>
       </tr>
     
       <tr>
         <td><%= f.label :cpf %></td>
-        <td><%= f.text_field :cpf %></td>
+        <td><%= f.text_field :cpf, class: 'form-control' %></td>
       
         <td><%= f.label :cnpj %></td>
-        <td><%= f.text_field :cnpj %></td>
+        <td><%= f.text_field :cnpj, class: 'form-control' %></td>
       </tr>
 
       <tr>
         <td><%= f.label :rg %></td>
-        <td><%= f.text_field :rg %></td>
+        <td><%= f.text_field :rg, class: 'form-control' %></td>
       
         <td><%= f.label :inscricao_estadual %></td>
-        <td><%= f.text_field :inscricao_estadual %></td>
+        <td><%= f.text_field :inscricao_estadual, class: 'form-control' %></td>
       </tr>
 
       <tr>
         <td><%= f.label :data_nascimento %></td>
-        <td><%= f.text_field :data_nascimento %></td>
+        <td><%= f.text_field :data_nascimento, class: 'form-control' %></td>
 
         <td><%= f.label :inscricao_municipal %></td>
-        <td><%= f.text_field :inscricao_municipal %></td>
+        <td><%= f.text_field :inscricao_municipal, class: 'form-control' %></td>
       </tr>
 
       <tr>
         <td><%= f.label :cargo %></td>
-        <td><%= f.collection_select :cargo_id, Cargo.all, :id, :nome %></td>
+        <td><%= f.collection_select :cargo_id, Cargo.all, :id, :nome, {} , class: 'form-control' %></td>
       </tr>
 
     </table>

@@ -4,10 +4,11 @@
 
 /* Main content */
 #main {
-  margin-left: 15%; /* Same as the width of the sidenav */
+  margin-left: 20%; /* Same as the width of the sidenav */
   font-size: 16pt; /* Increased text to enable scrolling */
   padding: 0px 10px;
-  max-width: 75%;
+  max-width: 55%;  
+  float: center;
 }
 
 $color: steelblue;
@@ -50,7 +51,9 @@ $color: steelblue;
 
   h1 {      
     display: inline-block;
-    margin-right: 2em;
+    font-size: 14pt;    
+    margin-right: 1em;
+    margin-bottom: 3em;
   }
 
   form {
@@ -83,8 +86,9 @@ th {
 }
 
 .lista-direita {
-  z-index: 1;
+  z-index: 1000;
   max-width: 25% !important; 
+  min-width: 25% !important; 
   overflow: auto;
   position: absolute;
   top: 0px;
@@ -93,7 +97,7 @@ th {
   border-left: 1px solid grey;
   font-size: 10pt;
   display: block;    
-  opacity: 1;    
+  opacity: 1;      
   
   tr {
     cursor: pointer;

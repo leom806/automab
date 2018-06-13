@@ -4,14 +4,14 @@
 
     <thead class='head dark'>
       <tr>
-        <th onclick="order('rg');">RG</th>
-        <th onclick="order('cpf');">CPF</th>
-        <th onclick="order('cnpj');">CNPJ</th>
-        <th onclick="order('nome_completo');">Nome Completo</th>
-        <th onclick="order('nome_fantasia');">Nome Fantasia</th>
-        <th onclick="order('data_nascimento');">Data de Nascimento</th>
-        <th onclick="order('inscricao_municipal');">Inscrição Municipal</th>
-        <th onclick="order('inscricao_estadual');">Inscrição Estadual</th>
+        <th nowrap onclick="order('rg');">RG</th>
+        <th nowrap onclick="order('cpf');">CPF</th>
+        <th nowrap onclick="order('cnpj');">CNPJ</th>
+        <th nowrap onclick="order('nome_completo');">Nome Completo</th>
+        <th nowrap onclick="order('nome_fantasia');">Nome Fantasia</th>
+        <th nowrap onclick="order('data_nascimento');">Data de Nascimento</th>
+        <th nowrap onclick="order('inscricao_municipal');">Inscrição Municipal</th>
+        <th nowrap onclick="order('inscricao_estadual');">Inscrição Estadual</th>
       </tr>
     </thead>
 
@@ -19,14 +19,14 @@
     <% funcionarios.each do |funcionario| %>
     
       <tr class="<%= "active" if funcionario.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_funcionario_path(funcionario) %>';">           
-        <td><%= funcionario.rg %></td>
-        <td><%= funcionario.cpf %></td>      
-        <td><%= funcionario.cnpj %></td>
-        <td><%= funcionario.nome_completo %></td>
-        <td><%= funcionario.nome_fantasia %></td>
-        <td><%= funcionario.data_nascimento %></td>
-        <td><%= funcionario.inscricao_municipal %></td>
-        <td><%= funcionario.inscricao_estadual %></td>
+        <td nowrap><%= funcionario.rg %></td>
+        <td nowrap><%= funcionario.cpf %></td>      
+        <td nowrap><%= funcionario.cnpj %></td>
+        <td nowrap><%= funcionario.nome_completo %></td>
+        <td nowrap><%= funcionario.nome_fantasia %></td>
+        <td nowrap><%= funcionario.data_nascimento %></td>
+        <td nowrap><%= funcionario.inscricao_municipal %></td>
+        <td nowrap><%= funcionario.inscricao_estadual %></td>
       </tr>
     
     <% end %>

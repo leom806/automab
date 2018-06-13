@@ -1,0 +1,68 @@
+<span class="top">
+  <h1> Funcionários </h1>
+  <%= link_to 'Criar', funcionarios_path, { onclick: 'create();', class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", funcionario_path(@funcionario), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', funcionario_path(@funcionario), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'funcionarios', object: @funcionarios, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @funcionario, url: funcionario_path(@funcionario) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :nome_completo %></td>
+        <td><%= f.text_field :nome_completo %></td>
+    
+        <td><%= f.label :nome_fantasia %></td>
+        <td><%= f.text_field :nome_fantasia %></td>
+      </tr>
+    
+      <tr>
+        <td><%= f.label :cpf %></td>
+        <td><%= f.text_field :cpf %></td>
+      
+        <td><%= f.label :cnpj %></td>
+        <td><%= f.text_field :cnpj %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :rg %></td>
+        <td><%= f.text_field :rg %></td>
+      
+        <td><%= f.label :inscricao_estadual %></td>
+        <td><%= f.text_field :inscricao_estadual %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :data_nascimento %></td>
+        <td><%= f.text_field :data_nascimento %></td>
+
+        <td><%= f.label :inscricao_municipal %></td>
+        <td><%= f.text_field :inscricao_municipal %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :cargo %></td>
+        <td><%= f.collection_select :cargo_id, Cargo.all, :id, :nome %></td>
+      </tr>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

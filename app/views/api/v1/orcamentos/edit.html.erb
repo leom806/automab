@@ -1,0 +1,63 @@
+
+<span class="top">
+  <h1> Agendamentos </h1>
+  <%= link_to 'Criar', orcamentos_path, { onclick: "create('#{orcamentos_path}');", class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", orcamento_path(@orcamento), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', orcamento_path(@orcamento), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'orcamentos', object: @orcamentos, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @orcamento, url: orcamento_path(@orcamento) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :funcionario, 'Funcionário' %></td>
+        <td><%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome_completo, {}, class: 'form-control'  %></td>       
+        
+        <%= f.fields_for :funcionario do |c| %>
+          <% if @orcamento.funcionario.juridica == true %>
+            <td><%= c.label :cnpj, 'CNPJ' %></td>
+            <td><%= c.text_field :cnpj, value: @orcamento.funcionario.cnpj, class: 'form-control', disabled: true  %></td>       
+          <% else %>
+          <td><%= c.label :cpf, 'CPF' %></td>
+          <td><%= c.text_field :cpf, value: @orcamento.funcionario.cpf, class: 'form-control', disabled: true %></td>       
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td><%= f.label :data_solicitacao %></td>
+        <td><%= f.date_field :data_solicitacao, class: 'form-control' %></td>
+    
+        <td><%= f.label :data_orcamento %></td>
+        <td><%= f.date_field :data_orcamento, class: 'form-control' %></td>
+      </tr>
+    
+      <tr>
+        <td><%= f.label :entrega_estimada %></td>
+        <td><%= f.date_field :entrega_estimada, class: 'form-control' %></td>
+      
+        <td><%= f.label :descricao, 'Descrição' %></td>
+        <td><%= f.text_area :descricao, class: 'form-control' %></td>
+      </tr>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

@@ -13,6 +13,7 @@
 //= require jquery3
 //= require bootstrap
 //= require jquery_ujs
+//= require sweetalert
 //= require turbolinks
 //= require_tree .
 //= require_self

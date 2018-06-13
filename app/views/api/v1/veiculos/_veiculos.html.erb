@@ -7,10 +7,10 @@
     <thead class='head dark'>
       <tr>
         <th onclick="order('cor');">Cor</th>
+        <th onclick="order('chassi');">Chassi</th>
         <th onclick="order('montadora');">Montadora</th>
         <th onclick="order('modelo');">Modelo</th>
         <th onclick="order('placa');">Placa</th>
-        <th onclick="order('chassi');">Chassi</th>
       </tr>
     </thead>
 
@@ -19,10 +19,10 @@
     
       <tr class="<%= "active" if veiculo.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_veiculo_path(veiculo) %>';">           
         <td><%= veiculo.cor %></td>
+        <td><%= veiculo.chassi %></td>      
         <td><%= veiculo.montadora %></td>
         <td><%= veiculo.modelo %></td>
         <td nowrap><%= veiculo.placa %></td>
-        <td><%= veiculo.chassi %></td>      
       </tr>
     
     <% end %>

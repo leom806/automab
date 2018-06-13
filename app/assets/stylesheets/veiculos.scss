@@ -61,7 +61,7 @@
     }
 
     .table-hover tr:hover {
-      filter: invert(80%);        
+      filter: invert(90%);        
     }
   
     tbody tr td {
@@ -69,8 +69,11 @@
     }
 
     th td, th:hover {  
-      filter: invert(100%);         
-    }    
+      // Todas as cores aqui serão invertidas pelo filter do hover!
+      background-color: #DDD;
+      border-color: white;
+      color: black;         
+    }        
     
     .active td, .active td:hover {
       background-color: darkred !important;      
@@ -86,12 +89,6 @@
         padding: 5px;
       }
     }
-  }
-
-  .btn {
-    margin-left: 0.2em;    
-    width: 10em;    
-    font-size: 14pt;
   }
 
 }

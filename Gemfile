@@ -40,9 +40,7 @@ gem 'chartkick'
 # Use Groupdate
 gem 'groupdate'
 # SweetAlert
-gem 'sweet-alert'
-# SweetAlert Confirm
-gem 'sweet-alert-confirm'
+gem 'sweetalert-rails'
 
 
 # Use Capistrano for deployment

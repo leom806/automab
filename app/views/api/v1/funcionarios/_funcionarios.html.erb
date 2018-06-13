@@ -1,0 +1,39 @@
+<div class='lista-direita'>
+
+  <table class="table table-striped table-hover">
+
+    <thead class='head dark'>
+      <tr>
+        <th onclick="order('rg');">RG</th>
+        <th onclick="order('cpf');">CPF</th>
+        <th onclick="order('cnpj');">CNPJ</th>
+        <th onclick="order('cargo');">Cargo</th>
+        <th onclick="order('nome_completo');">Nome Completo</th>
+        <th onclick="order('nome_fantasia');">Nome Fantasia</th>
+        <th onclick="order('data_nascimento');">Data de Nascimento</th>
+        <th onclick="order('inscricao_municipal');">Inscrição Municipal</th>
+        <th onclick="order('inscricao_estadual');">Inscrição Estadual</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% funcionarios.each do |funcionario| %>
+    
+      <tr class="<%= "active" if funcionario.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_funcionario_path(funcionario) %>';">           
+        <td><%= funcionario.rg %></td>
+        <td><%= funcionario.cpf %></td>      
+        <td><%= funcionario.cnpj %></td>
+        <td nowrap><%= funcionario.cargo.nome %></td>
+        <td><%= funcionario.nome_completo %></td>
+        <td><%= funcionario.nome_fantasia %></td>
+        <td><%= funcionario.data_nascimento %></td>
+        <td><%= funcionario.inscricao_municipal %></td>
+        <td><%= funcionario.inscricao_estadual %></td>
+      </tr>
+    
+    <% end %>
+    </body>
+    
+  </table>
+
+</div>

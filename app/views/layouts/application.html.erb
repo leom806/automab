@@ -19,7 +19,7 @@
         <a href="">Orçamento</a>
         <a href="">Ordem de Serviço</a>        
         <a href="">Clientes</a>
-        <a href="">Funcionários</a>
+        <%= link_to 'Funcionários', funcionarios_path, class: is_active?(funcionarios_path) %> 
         <%= link_to 'Cargos', cargos_path, class: is_active?(cargos_path) %> 
         <%= link_to 'Categorias de Items', categoria_items_path, class: is_active?(categoria_items_path) %>
         <a href="">Itens</a>          

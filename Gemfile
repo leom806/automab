@@ -39,6 +39,10 @@ gem 'bootstrap-sass'
 gem 'chartkick'
 # Use Groupdate
 gem 'groupdate'
+# SweetAlert
+gem 'sweet-alert'
+# SweetAlert Confirm
+gem 'sweet-alert-confirm'
 
 
 # Use Capistrano for deployment

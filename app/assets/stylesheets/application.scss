@@ -1,12 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import "/\*";
-
-
 /* Main content */
 #main {
-  margin-left: 10em; /* Same as the width of the sidenav */
-  font-size: 20px; /* Increased text to enable scrolling */
+  margin-left: 15%; /* Same as the width of the sidenav */
+  font-size: 16pt; /* Increased text to enable scrolling */
   padding: 0px 10px;
+  max-width: 75%;
 }
+
+$color: steelblue;
+
+.btn-success {
+  background-color: $color;
+  border-color: $color;
+}
+
+.btn-danger {
+  background-color: $color;
+  border-color: $color;
+}
+
+.btn-primary {
+  background-color: $color;
+  border-color: $color;
+}
+
+@import "/\*";

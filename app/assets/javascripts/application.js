@@ -15,3 +15,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require_self
+
+$(document).ready(() => {
+  // Os link_to geram um form, isso faz com que eles não sejam enviados e que o formulário principal 
+  // seja o alvo nos métodos create() e update()
+  $('form').click(()=>{
+    $(this).preventDefault();
+  });
+});
+
+

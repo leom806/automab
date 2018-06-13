@@ -9,11 +9,12 @@
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
 
-  <body class="<%= controller.controller_name %>">
+  <body class="<%= controller.controller_name %>">    
+
     <% cache do %>
       <div class="sidenav">
-        <h1 class='automab'>  AutoMAB</h1>
-        <a href="">Home</a>
+        <h1 class='automab'>AutoMAB</h1>
+        <%= link_to 'Home', home_path, onclick: 'location.reload();' %>
         <a href="">Agendamento</a>
         <a href="">Orçamento</a>
         <a href="">Ordem de Serviço</a>
@@ -42,7 +43,8 @@
       </div>
     <% end %>
 
-    <div id="main">
+    <div id="main">      
+      <%== show_flash if flash? %>
       <%= yield %>
     </div>
     

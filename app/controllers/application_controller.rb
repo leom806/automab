@@ -44,8 +44,12 @@ class ApplicationController < ActionController::Base
 
   def update
     @element = current_model.find params[:id]
-
-    if @element.update( element_params ) then render_data @element else render_error end
+    
+    if @element.update( element_params ) 
+      flash[:notice] = 'Atualizado com sucesso!' 
+    else
+      flash[:notice] = 'Não foi possível atualizar' 
+    end
   end
 
 
@@ -98,8 +102,8 @@ class ApplicationController < ActionController::Base
   def element_params
     begin
       ##### DESCOMENTAR QUANDO ESTIVERMOS USANDO OS RELACIONAMENTOS #####
-      # whitelist = current_controller.send("#{controller_name}_params") 
-      whitelist = current_model.column_names # paliativo
+      whitelist = current_controller.send("#{controller_name}_params") 
+      # whitelist = current_model.column_names # paliativo
     rescue
       logger.info("================================================")
       logger.info("#{controller} does not have a params whitelist!")

@@ -39,7 +39,7 @@ def gerar_chassi
   (0...17).map { charset[rand(charset.size)] } .join
 end
 
-5.times do |i|
+15.times do |i|
 
   cliente = Cliente.create!({
     juridica: false,

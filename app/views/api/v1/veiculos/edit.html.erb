@@ -1,0 +1,74 @@
+
+<span class="top">
+  <h1> Veículos </h1>
+  <%= link_to 'Criar', veiculos_path, { onclick: 'create();', class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", veiculo_path(@veiculo), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', veiculo_path(@veiculo), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'veiculos', object: @veiculos, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @veiculo, url: veiculo_path(@veiculo) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :montadora %></td>
+        <td><%= f.text_field :montadora %></td>
+    
+        <td><%= f.label :modelo %></td>
+        <td><%= f.text_field :modelo %></td>
+      </tr>
+    
+      <tr>
+        <td><%= f.label :versao %></td>
+        <td><%= f.text_field :versao %></td>
+      
+        <td><%= f.label :chassi %></td>
+        <td><%= f.text_field :chassi %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :placa %></td>
+        <td><%= f.text_field :placa %></td>
+      
+        <td><%= f.label :combustível %></td>
+        <td><%= f.text_field :combustivel %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :quilometragem %></td>
+        <td><%= f.text_field :quilometragem %></td>
+
+        <td><%= f.label :cor %></td>
+        <td><%= f.text_field :cor %>
+      </tr>
+
+      <tr>
+        <td><%= f.label :ano_fabricacao %></td>
+        <td><%= f.text_field :ano_fabricacao %>
+
+        <td><%= f.label :ano_modelo %></td>
+        <td><%= f.text_field :ano_modelo %></td>
+      </tr>
+
+      <%= f.hidden_field :cliente_id %>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

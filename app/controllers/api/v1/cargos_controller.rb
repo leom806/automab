@@ -1,57 +1,78 @@
 module Api
   module V1
-    class CargosController < ApplicationController
-      # # GET /cargos
-      # def index
-      #   cargos = Cargo.all
-      #   render json: { status: 'Sucesso', mensagem: 'Cargo', dados: cargos }, status: :ok
-      # end
+    class CargosController < ApplicationController    
 
-      # # GET /cargos/1
-      # def show
-      #   cargo = Cargo.find(params[:id])
+      before_action :set_cargo, except: [:index, :create]
+      before_action :set_cargos
 
-      #   render json: { status: 'Sucesso', mensagem: 'Cargo', dados: cargo }, status: :ok
-      # end
 
-      # # POST /cargos
-      # def create
-      #   cargo = Cargo.new(cargo_params)
+      def index        
+        redirect_to edit_cargo_path Cargo.first   
+      end
 
-      #   if cargo.save
-      #     render json: { status: 'Sucesso', mensagem: 'Cargo foi criado!', dados: cargo }, status: :created, location: cargo
-      #   else
-      #     render json: { status: 'Erro', mensagem: 'Cargo não foi criado.', motivo: cargo.errors.full_messages, parametros: cargo_params }, status: :unprocessable_entity
-      #   end
-      # end
 
-      # # PATCH/PUT /cargos/1
-      # def update
-      #   cargo = Cargo.find(params[:id])
+      def show
+        redirect_to edit_cargo_path @cargo || Cargo.first
+      end
 
-      #   if cargo.update(cargo_params)
-      #     render json: { status: 'Sucesso', mensagem: 'Cargo foi atualizado.', dados: cargo }, status: :ok
-      #   else
-      #     render json: { status: 'Erro', mensagem: 'Cargo não foi atualizado.', motivo: cargo.errors.full_messages, parametros: cargo_params }, status: :unprocessable_entity
-      #   end
-      # end
+      def edit        
+      end
 
-      # # DELETE /cargos/1
-      # def destroy
-      #   cargo = Cargo.find(params[:id])
-      #   if cargo != nil
-      #     cargo.destroy
-      #     render json: { status: 'Sucesso', mensagem: 'Cargo foi excluído.', dados: cargo }, status: :ok
-      #   else
-      #     render json: { status: 'Erro', mensagem: 'Cargo não encontrado.', dados: cargo }, status: :unprocessable_entity
-      #   end
-      # end
 
-      # private
-      # # Only allow a trusted parameter "white list" through.
-      # def cargo_params
-      #   params.require(:cargo).permit(:nome, :salario, :descricao)
-      # end
+      def create
+        @cargo = Cargo.create!(cargos_params[:cargo])
+      rescue
+        flash[:notice] = 'Cargo não pode ser criado!'      
+      else
+        flash[:notice] = 'Cargo criado com sucesso!'
+      ensure
+        show()
+      end
+
+
+      def destroy
+        @cargo.destroy
+      rescue
+        flash[:notice] = "Não foi possível excluir!"
+      else
+        flash[:notice] = "Cargo excluído."
+      ensure
+        index()  
+      end
+
+
+      def update        
+    
+        if @cargo.update( cargos_params[:cargo] ) 
+          flash[:notice] = 'Atualizado com sucesso!' 
+        else
+          flash[:notice] = 'Não foi possível atualizar' 
+        end
+
+        # render plain: cargos_params.to_json #params.to_json
+
+        redirect_to edit_cargo_path(@cargo)
+      end
+
+
+
+      private
+
+      def set_cargo
+        @cargo = Cargo.find(cargos_params[:id])
+      end
+
+      def set_cargos
+        if params[:order].blank?
+          @cargos = Cargo.all      
+        else
+          @cargos = Cargo.order(cargos_params[:order])
+        end
+      end
+
+      def cargos_params
+        params.permit(:id, :order, cargo: {})
+      end      
     end
   end
 end

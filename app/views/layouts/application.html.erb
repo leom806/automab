@@ -20,7 +20,7 @@
         <a href="">Ordem de Serviço</a>        
         <a href="">Clientes</a>
         <a href="">Funcionários</a>
-        <a href="">Cargos</a>
+        <%= link_to 'Cargos', cargos_path, class: is_active?(cargos_path) %> 
         <%= link_to 'Categorias de Items', categoria_items_path, class: is_active?(categoria_items_path) %>
         <a href="">Itens</a>          
         <%= link_to 'Veículos', veiculos_path, class: is_active?(veiculos_path) %> 

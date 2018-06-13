@@ -1,7 +1,7 @@
 
 <span class="top">
   <h1> Veículos </h1>
-  <%= link_to 'Criar', veiculos_path, { onclick: 'create();', class: 'btn btn-success' } %>
+  <%= link_to 'Criar', veiculos_path, { onclick: "create('#{veiculos_path}');", class: 'btn btn-success' } %>
   <%= link_to "Atualizar", veiculo_path(@veiculo), { onclick: 'update();', class: 'btn btn-primary' }%>
   <%= link_to 'Excluir', veiculo_path(@veiculo), 
       method: :delete,       

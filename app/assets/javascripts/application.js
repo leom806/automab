@@ -34,4 +34,17 @@ $(document).ready(() => {
 
 });
 
+function order(order_by){
+  var location = window.location.href;
+  window.location.href = location.substring(0, location.indexOf('?')) + '?order=' + order_by;
+}
 
+function create(path){
+  $('#form > input[name="_method"]').attr('value', 'post');
+  $('#form').attr('action', path);    
+  $('#form').submit();  
+}
+
+function update(){
+  $('#form').submit();  
+}

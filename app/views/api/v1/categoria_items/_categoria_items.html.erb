@@ -1,0 +1,25 @@
+<div class='lista-direita'>
+
+  <table class="table table-striped table-hover">
+
+    <thead class='head dark'>
+      <tr>
+        <th onclick="order('id');">Id</th>
+        <th onclick="order('descricao');">Descricao</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% categoria_items.each do |categoria_item| %>
+    
+      <tr class="<%= "active" if categoria_item.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_categoria_item_path(categoria_item) %>';">           
+        <td><%= categoria_item.id %></td>
+        <td><%= categoria_item.descricao %></td>      
+      </tr>
+    
+    <% end %>
+    </body>
+    
+  </table>
+
+</div>

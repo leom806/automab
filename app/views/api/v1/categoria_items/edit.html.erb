@@ -1,0 +1,37 @@
+
+<span class="top">
+  <h1> Categorias </h1>
+  <%= link_to 'Criar', categoria_items_path, { onclick: "create('#{categoria_items_path}');", class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", categoria_item_path(@categoria_item), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', categoria_item_path(@categoria_item), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'categoria_items', object: @categoria_items, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @categoria_item, url: categoria_item_path(@categoria_item) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :descricao %></td>
+        <td><%= f.text_field :descricao %></td>
+      </tr>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

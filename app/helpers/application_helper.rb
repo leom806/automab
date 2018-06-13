@@ -27,7 +27,7 @@ module ApplicationHelper
 
     return "active" if controller.controller_name == 'main' && path == '/'
 
-    if path.include? controller.controller_name 
+    if path == "/#{controller.controller_name}"
       "active"     
     end
   end

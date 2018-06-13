@@ -22,7 +22,7 @@
         <%= link_to 'Funcionários', funcionarios_path, class: is_active?(funcionarios_path) %> 
         <%= link_to 'Cargos', cargos_path, class: is_active?(cargos_path) %> 
         <%= link_to 'Categorias de Items', categoria_items_path, class: is_active?(categoria_items_path) %>
-        <a href="">Itens</a>          
+        <%= link_to 'Items', items_path, class: is_active?(items_path) %>         
         <%= link_to 'Veículos', veiculos_path, class: is_active?(veiculos_path) %> 
       </div>
     <% end %>

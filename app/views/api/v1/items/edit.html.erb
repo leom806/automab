@@ -1,0 +1,56 @@
+
+<span class="top">
+  <h1> Items </h1>
+  <%= link_to 'Criar', items_path, { onclick: "create('#{items_path}');", class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", item_path(@item), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', item_path(@item), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'items', object: @items, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @item, url: item_path(@item) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>                              
+        <td><%= f.label :categoria %></td>
+        <td><%= f.collection_select :categoria_item_id, CategoriaItem.all, :id, :descricao, {}, class: 'form-control' %></td> 
+
+        <td><%= f.label :descricao, "Descrição" %></td>
+        <td><%= f.text_field :descricao, class: 'form-control' %>
+      </tr>      
+
+      <tr>
+        <td><%= f.label :codigo_fabricante, "Cód. Fabricante" %></td>
+        <td><%= f.text_field :codigo_fabricante, class: 'form-control' %>
+
+        <td><%= f.label :nomeItem, "Nome" %></td>
+        <td><%= f.text_field :nomeItem, class: 'form-control' %></td>
+      </tr>     
+      
+      <tr>
+          <td><%= f.label :validade %></td>
+          <td><%= f.date_field :validade, class: 'form-control' %>
+  
+          <td><%= f.label :preco %></td>
+          <td><%= f.number_field :preco, class: 'form-control' %></td>
+        </tr>   
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

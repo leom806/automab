@@ -26,8 +26,7 @@
         <td><%= f.label :cliente %></td>
         <td><%= f.collection_select :cliente_id, Cliente.all, :id, :nome_completo, {}, class: 'form-control'  %></td>       
         
-        <%= f.fields_for :cliente do |c| %>
-        Descrição: cliente quer ...
+        <%= f.fields_for :cliente do |c| %>        
           <% if @veiculo.cliente.juridica == true %>
             <td><%= c.label :cnpj, 'CNPJ' %></td>
             <td><%= c.text_field :cnpj, value: @veiculo.cliente.cnpj, class: 'form-control', disabled: true  %></td>       

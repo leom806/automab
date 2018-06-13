@@ -1,9 +1,16 @@
-
+Placa
 <div class="main">  
   <% cache do %>
+    <h1>Ordens de Serviço por Data de Criação</h1>
     <%= line_chart OrdemServico.group_by_day(:data_criacao).count, colors: ["darkred", "#999"] %>
+    
+    <h1>Veículos por Montadora</h1>
     <%= column_chart Veiculo.group(:montadora).count %>
+    
+    <h1>Veículos por Modelo</h1>
     <%= column_chart Veiculo.group(:modelo).count, colors: ["darkred", "#999"] %>
+    
+    <h1>Valores das Transações</h1>
     <%= pie_chart Transacao.group(:valor_recebido).count %>
   <% end %>
 </div>

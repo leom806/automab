@@ -1,0 +1,31 @@
+<div class='lista-direita'>
+
+  <table class="table table-striped table-hover">
+
+    <thead class='head dark'>
+      <tr>
+        <th nowrap onclick="order('codigo_fabricante');">Cód. Fabricante</th>
+        <th nowrap onclick="order('nomeItem');">Nome</th>
+        <th nowrap onclick="order('descricao');">Descrição</th>
+        <th nowrap onclick="order('validade');">Validade</th>
+        <th nowrap onclick="order('preco');">Preço</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% items.each do |item| %>
+    
+      <tr class="<%= "active" if item.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_item_path(item) %>';">           
+        <td nowrap><%= item.codigo_fabricante %></td>
+        <td nowrap><%= item.nomeItem %></td>      
+        <td nowrap><%= item.descricao %></td>
+        <td nowrap><%= item.validade %></td>
+        <td nowrap><%= item.preco %></td>
+      </tr>
+    
+    <% end %>
+    </tbody>
+    
+  </table>
+
+</div>

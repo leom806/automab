@@ -1,0 +1,29 @@
+<div class='lista-direita'>
+
+  <table class="table table-striped table-hover">
+
+    <thead class='head dark'>
+      <tr>
+        <th nowrap onclick="order('data_solicitacao');">Solicitação</th>
+        <th nowrap onclick="order('data_agendamento');">Agendamento</th>
+        <th nowrap onclick="order('entrega_estimada');">Estimativa</th>
+        <th nowrap onclick="order('descricao');">Descrição</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% agendamentos.each do |agendamento| %>
+    
+      <tr class="<%= "active" if agendamento.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_agendamento_path(agendamento) %>';">           
+        <td nowrap><%= agendamento.data_solicitacao %></td>
+        <td nowrap><%= agendamento.data_agendamento %></td>      
+        <td nowrap><%= agendamento.entrega_estimada %></td>
+        <td nowrap><%= agendamento.descricao %></td>
+      </tr>
+    
+    <% end %>
+    </tbody>
+    
+  </table>
+
+</div>

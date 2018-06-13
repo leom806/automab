@@ -22,7 +22,7 @@ module Api
       def create
         @veiculo = Veiculo.create!(veiculos_params[:veiculo])
       rescue
-        flash[:notice] = 'Veículo não pôde ser criado!'      
+        flash[:notice] = 'Veículo não pode ser criado!'      
       else
         flash[:notice] = 'Veículo criado com sucesso!'
       ensure
@@ -71,7 +71,7 @@ module Api
       end
 
       def veiculos_params
-        params.permit(:id, :order, veiculo: {})
+        params.permit!#(:id, :order, veiculo: {cliente:[:cliente_id]})
       end      
     end
   end

@@ -22,15 +22,20 @@
     <table>
     
       <tr>
+        
         <td><%= f.label :cliente %></td>
         <td><%= f.collection_select :cliente_id, Cliente.all, :id, :nome_completo, {}, class: 'form-control'  %></td>       
         
-        <% if @veiculo.cliente.juridica == true %>
-          <td><%= f.label :CNPJ %></td>
-          <td><%= f.text_field 'CNPJ', value: @veiculo.cliente.cnpj, class: 'form-control'  %></td>       
-        <% else %>
-          <td><%= f.label :CPF %></td>
-          <td><%= f.text_field 'CPF', value: @veiculo.cliente.cpf, class: 'form-control' %></td>       
+        <%= f.fields_for :cliente do |c| %>
+        Descrição: cliente quer ...
+          <% if @veiculo.cliente.juridica == true %>
+            <td><%= c.label :cnpj, 'CNPJ' %></td>
+            <td><%= c.text_field :cnpj, value: @veiculo.cliente.cnpj, class: 'form-control', disabled: true  %></td>       
+          <% else %>
+            <td><%= c.label :cpf, 'CPF' %></td>
+            <td><%= c.text_field :cpf, value: @veiculo.cliente.cpf, class: 'form-control', disabled: true %></td>       
+          <% end %>
+          
         <% end %>
       </tr>
 

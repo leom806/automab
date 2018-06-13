@@ -1,0 +1,63 @@
+
+<span class="top">
+  <h1> Agendamentos </h1>
+  <%= link_to 'Criar', agendamentos_path, { onclick: "create('#{agendamentos_path}');", class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", agendamento_path(@agendamento), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', agendamento_path(@agendamento), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'agendamentos', object: @agendamentos, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @agendamento, url: agendamento_path(@agendamento) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :funcionario, 'Funcionário' %></td>
+        <td><%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome_completo, {}, class: 'form-control'  %></td>       
+        
+        <%= f.fields_for :funcionario do |c| %>
+          <% if @agendamento.funcionario.juridica == true %>
+            <td><%= c.label :cnpj, 'CNPJ' %></td>
+            <td><%= c.text_field :cnpj, value: @agendamento.funcionario.cnpj, class: 'form-control', disabled: true  %></td>       
+          <% else %>
+          <td><%= c.label :cpf, 'CPF' %></td>
+          <td><%= c.text_field :cpf, value: @agendamento.funcionario.cpf, class: 'form-control', disabled: true %></td>       
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td><%= f.label :data_solicitacao %></td>
+        <td><%= f.date_field :data_solicitacao, class: 'form-control' %></td>
+    
+        <td><%= f.label :data_agendamento %></td>
+        <td><%= f.date_field :data_agendamento, class: 'form-control' %></td>
+      </tr>
+    
+      <tr>
+        <td><%= f.label :entrega_estimada %></td>
+        <td><%= f.date_field :entrega_estimada, class: 'form-control' %></td>
+      
+        <td><%= f.label :descricao, 'Descrição' %></td>
+        <td><%= f.text_area :descricao, class: 'form-control' %></td>
+      </tr>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

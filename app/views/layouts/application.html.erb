@@ -15,7 +15,7 @@
       <div class="sidenav">
         <h1 class='automab'>AutoMAB</h1>
         <%= link_to 'Home', home_path, onclick: 'location.reload();', class: is_active?(home_path) %>
-        <a href="">Agendamento</a>
+        <%= link_to 'Agendamentos', agendamentos_path, class: is_active?(agendamentos_path) %>
         <a href="">Orçamento</a>
         <a href="">Ordem de Serviço</a>        
         <a href="">Clientes</a>

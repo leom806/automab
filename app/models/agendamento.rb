@@ -1,6 +1,6 @@
 class Agendamento < ApplicationRecord
   
-  has_one :funcionario
+  belongs_to :funcionario
 
   validates :data_solicitacao, :data_agendamento, :funcionario_id, presence: true     
 

@@ -21,47 +21,60 @@
 
     <table>
     
+      <div class="form-group"></div>
+      <tr>
+        <td><%= f.label :cliente %></td>
+        <td><%= f.collection_select :cliente_id, Cliente.all, :id, :nome_completo, { class: 'form-control'}  %></td>       
+        
+        <% if @veiculo.cliente.juridica == true %>
+          <td><%= f.label :CNPJ %></td>
+          <td><%= f.text_field 'CNPJ', value: @veiculo.cliente.cnpj, class: 'form-control'  %></td>       
+        <% else %>
+          <td><%= f.label :CPF %></td>
+          <td><%= f.text_field 'CPF', value: @veiculo.cliente.cpf, class: 'form-control' %></td>       
+        <% end %>
+      </tr>
+    </div>
+
       <tr>
         <td><%= f.label :montadora %></td>
-        <td><%= f.text_field :montadora %></td>
+        <td><%= f.text_field :montadora, class: 'form-control' %></td>
     
         <td><%= f.label :modelo %></td>
-        <td><%= f.text_field :modelo %></td>
+        <td><%= f.text_field :modelo, class: 'form-control' %></td>
       </tr>
     
       <tr>
         <td><%= f.label :versao %></td>
-        <td><%= f.text_field :versao %></td>
+        <td><%= f.text_field :versao, class: 'form-control' %></td>
       
         <td><%= f.label :chassi %></td>
-        <td><%= f.text_field :chassi %></td>
+        <td><%= f.text_field :chassi, class: 'form-control' %></td>
       </tr>
 
       <tr>
         <td><%= f.label :placa %></td>
-        <td><%= f.text_field :placa %></td>
+        <td><%= f.text_field :placa, class: 'form-control' %></td>
       
         <td><%= f.label :combustível %></td>
-        <td><%= f.text_field :combustivel %></td>
+        <td><%= f.text_field :combustivel, class: 'form-control' %></td>
       </tr>
 
       <tr>
         <td><%= f.label :quilometragem %></td>
-        <td><%= f.text_field :quilometragem %></td>
+        <td><%= f.text_field :quilometragem, class: 'form-control' %></td>
 
         <td><%= f.label :cor %></td>
-        <td><%= f.text_field :cor %>
+        <td><%= f.text_field :cor, class: 'form-control' %>
       </tr>
 
       <tr>
         <td><%= f.label :ano_fabricacao %></td>
-        <td><%= f.text_field :ano_fabricacao %>
+        <td><%= f.text_field :ano_fabricacao, class: 'form-control' %>
 
         <td><%= f.label :ano_modelo %></td>
-        <td><%= f.text_field :ano_modelo %></td>
-      </tr>
-
-      <%= f.hidden_field :cliente_id %>
+        <td><%= f.text_field :ano_modelo, class: 'form-control' %></td>
+      </tr>      
 
     </table>
 

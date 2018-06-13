@@ -1,9 +1,10 @@
 
 <div class="main">  
   <% cache do %>
-    <%= line_chart OrdemServico.group_by_day(:data_criacao).count %>
+    <%= line_chart OrdemServico.group_by_day(:data_criacao).count, colors: ["darkred", "#999"] %>
     <%= column_chart Veiculo.group(:montadora).count %>
-    <%= pie_chart Cliente.group(:juridica).count %>
+    <%= column_chart Veiculo.group(:modelo).count, colors: ["darkred", "#999"] %>
+    <%= pie_chart Transacao.group(:valor_recebido).count %>
   <% end %>
 </div>
 

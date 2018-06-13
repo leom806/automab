@@ -24,6 +24,14 @@ $(document).ready(() => {
   $('form').click(()=>{
     $(this).preventDefault();
   });
+
+  $('.sidenav a').click(() => {    
+    $('.active').each((e) => {
+      $(e).removeClass('active');
+    });
+    $(this).addClass('active');    
+  });
+
 });
 
 

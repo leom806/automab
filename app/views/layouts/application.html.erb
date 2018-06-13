@@ -11,40 +11,23 @@
 
   <body class="<%= controller.controller_name %>">    
 
-    <% cache do %>
+    
       <div class="sidenav">
         <h1 class='automab'>AutoMAB</h1>
-        <%= link_to 'Home', home_path, onclick: 'location.reload();' %>
+        <%= link_to 'Home', home_path, onclick: 'location.reload();', class: is_active?(home_path) %>
         <a href="">Agendamento</a>
         <a href="">Orçamento</a>
-        <a href="">Ordem de Serviço</a>
-        <button class="dropdown-btn">Cadastrar 
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-          <a href="">Clientes</a>
-          <a href="">Funcionários</a>
-          <a href="">Cargos</a>
-          <a href="">Categorias de Item</a>
-          <a href="">Itens</a>
-          <a href="">Veículos</a>
-        </div>
-        <button class="dropdown-btn">Consultar 
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-          <a href="">Clientes</a>
-          <a href="">Funcionários</a>
-          <a href="">Cargos</a>
-          <a href="">Categorias de Item</a>
-          <a href="">Itens</a>          
-          <%= link_to 'Veículos', veiculos_path %> 
-        </div>
+        <a href="">Ordem de Serviço</a>        
+        <a href="">Clientes</a>
+        <a href="">Funcionários</a>
+        <a href="">Cargos</a>
+        <%= link_to 'Categorias de Items', categoria_items_path, class: is_active?(categoria_items_path) %>
+        <a href="">Itens</a>          
+        <%= link_to 'Veículos', veiculos_path, class: is_active?(veiculos_path) %> 
       </div>
-    <% end %>
-
+    
     <div id="main">      
-      <%== show_flash if flash? %>
+      <%== show_sweet if flash? %>
       <%= yield %>
     </div>
     

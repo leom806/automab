@@ -33,4 +33,9 @@ $color: steelblue;
   border-color: $color;
 }
 
+.active {
+  background-color: darkred !important;  
+  color: white !important;
+}
+
 @import "/\*";

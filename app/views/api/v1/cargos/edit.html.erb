@@ -1,0 +1,45 @@
+
+<span class="top">
+  <h1> Cargos </h1>
+  <%= link_to 'Criar', cargos_path, { onclick: 'create();', class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", cargo_path(@cargo), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', cargo_path(@cargo), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'cargos', object: @cargos, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @cargo, url: cargo_path(@cargo) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :nome %></td>
+        <td><%= f.text_field :nome %></td>
+    
+        <td><%= f.label :salario %></td>
+        <td><%= f.text_field :salario %></td>
+      </tr>
+    
+      <tr>
+        <td><%= f.label :descricao %></td>
+        <td colspan="2"><%= f.text_area :descricao %></td>
+      </tr>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

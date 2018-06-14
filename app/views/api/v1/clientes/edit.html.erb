@@ -1,14 +1,14 @@
 <span class="top">
-  <h1> Funcionários </h1>
-  <%= link_to 'Criar', funcionarios_path, { onclick: "create('#{funcionarios_path}');", class: 'btn btn-success' } %>
-  <%= link_to "Atualizar", funcionario_path(@funcionario), { onclick: 'update();', class: 'btn btn-primary' }%>
-  <%= link_to 'Excluir', funcionario_path(@funcionario), 
+  <h1> Clientes </h1>
+  <%= link_to 'Criar', clientes_path, { onclick: "create('#{clientes_path}');", class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", cliente_path(@cliente), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', cliente_path(@cliente), 
       method: :delete,       
       class: 'btn btn-danger', 
       data: { confirm: 'Você deseja realmente excluir?' } %>
 </span>
 
-<%= render partial: 'funcionarios', object: @funcionarios, class: 'lista-direita' %>
+<%= render partial: 'clientes', object: @clientes, class: 'lista-direita' %>
 
 
 <div class='center'>
@@ -16,7 +16,7 @@
   <hr>
 
   <center>
-  <%= form_for @funcionario, url: funcionario_path(@funcionario) , method: :patch, html: { id: 'form' } do |f| %>
+  <%= form_for @cliente, url: cliente_path(@cliente) , method: :patch, html: { id: 'form' } do |f| %>
 
     <table>
     
@@ -53,8 +53,8 @@
       </tr>
 
       <tr>
-        <td><%= f.label :cargo %></td>
-        <td><%= f.collection_select :cargo_id, Cargo.all, :id, :nome, {} , class: 'form-control' %></td>
+        <td><%= f.label :veiculo %></td>
+        <td><%= f.collection_select :veiculo_id, Veiculo.all, :id, :modelo, {} , class: 'form-control' %></td>
       </tr>
 
     </table>

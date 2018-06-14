@@ -1,0 +1,37 @@
+<div class='lista-direita'>
+
+  <table class="table table-striped table-hover">
+
+    <thead class='head dark'>
+      <tr>
+        <th nowrap onclick="order('rg');">RG</th>
+        <th nowrap onclick="order('cpf');">CPF</th>
+        <th nowrap onclick="order('cnpj');">CNPJ</th>
+        <th nowrap onclick="order('nome_completo');">Nome Completo</th>
+        <th nowrap onclick="order('nome_fantasia');">Nome Fantasia</th>
+        <th nowrap onclick="order('data_nascimento');">Data de Nascimento</th>
+        <th nowrap onclick="order('inscricao_municipal');">Inscrição Municipal</th>
+        <th nowrap onclick="order('inscricao_estadual');">Inscrição Estadual</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% clientes.each do |cliente| %>
+    
+      <tr class="<%= "active" if cliente.id.to_s == params[:id] %>" onclick="window.location.href='<%= edit_cliente_path(cliente) %>';">           
+        <td nowrap><%= cliente.rg %></td>
+        <td nowrap><%= cliente.cpf %></td>      
+        <td nowrap><%= cliente.cnpj %></td>
+        <td nowrap><%= cliente.nome_completo %></td>
+        <td nowrap><%= cliente.nome_fantasia %></td>
+        <td nowrap><%= cliente.data_nascimento %></td>
+        <td nowrap><%= cliente.inscricao_municipal %></td>
+        <td nowrap><%= cliente.inscricao_estadual %></td>
+      </tr>
+    
+    <% end %>
+    </body>
+    
+  </table>
+
+</div>

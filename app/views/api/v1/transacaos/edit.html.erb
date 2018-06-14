@@ -1,0 +1,52 @@
+<span class="top">
+  <h1> Transações </h1>
+  <%= link_to 'Criar', transacaos_path, { onclick: "create('#{transacaos_path}');", class: 'btn btn-success' } %>
+  <%= link_to "Atualizar", transacao_path(@transacao), { onclick: 'update();', class: 'btn btn-primary' }%>
+  <%= link_to 'Excluir', transacao_path(@transacao), 
+      method: :delete,       
+      class: 'btn btn-danger', 
+      data: { confirm: 'Você deseja realmente excluir?' } %>
+</span>
+
+<%= render partial: 'transacaos', object: @transacaos, class: 'lista-direita' %>
+
+
+<div class='center'>
+
+  <hr>
+
+  <center>
+  <%= form_for @transacao, url: transacao_path(@transacao) , method: :patch, html: { id: 'form' } do |f| %>
+
+    <table>
+    
+      <tr>
+        <td><%= f.label :data_transacao %></td>
+        <td><%= f.text_field :data_transacao, class: 'form-control' %></td>
+    
+        <td><%= f.label :valor_recebido %></td>
+        <td><%= f.text_field :valor_recebido, class: 'form-control' %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :ordem_servico %></td>
+        <td><%= f.collection_select :ordem_servico_id, OrdemServico.all, :id, :id, {} , class: 'form-control' %></td>
+
+        <td><%= f.label :funcionario %></td>
+        <td><%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome_completo || :nome_fantasia, {} , class: 'form-control' %></td>
+      </tr>
+
+      <tr>
+          <td><%= f.label :forma_pagamento %></td>
+          <td><%= f.select :forma_pagamento, ['Boleto', 'Parcelado 3x', 'À vista'], {}, class: 'form-control' %></td>
+      </tr>
+
+    </table>
+
+    <hr>  
+
+  <% end %>
+
+  </center>
+
+</div>

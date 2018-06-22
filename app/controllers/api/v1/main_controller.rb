@@ -18,7 +18,7 @@ module Api
         render json: {"Documentação da API": doc }, status: :ok 
       end
 
-      def index        
+      def index                    
         render template: 'home/index'
       end
 

@@ -1,35 +1,43 @@
+<% page = controller.controller_name %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AutoMAB</title>
+    <title><%= content_for?(:title) ? (yield :title) : controller.controller_name.camelize %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <%= javascript_include_tag "http://code.interactjs.io/v1.3.4/interact.min.js" %>
   </head>
 
-  <body class="<%= controller.controller_name %>">    
+  <body class="<%= page %>">    
 
-    <% cache do %>
-      <div class="sidenav">
-        <h1 class='automab'>AutoMAB</h1>
-        <%= link_to 'Home', home_path, onclick: 'location.reload();', class: is_active?(home_path) %>
-        <%= link_to 'Agendamentos', agendamentos_path, class: is_active?(agendamentos_path) %>
-        <%= link_to 'Orçamentos', orcamentos_path, class: is_active?(orcamentos_path) %>
-        <%= link_to 'Ordens de Serviços', ordem_servicos_path, class: is_active?(ordem_servicos_path) %>
-        <%= link_to 'Clientes', clientes_path, class: is_active?(clientes_path) %>
-        <%= link_to 'Funcionários', funcionarios_path, class: is_active?(funcionarios_path) %> 
-        <%= link_to 'Cargos', cargos_path, class: is_active?(cargos_path) %> 
-        <%= link_to 'Categorias de Items', categoria_items_path, class: is_active?(categoria_items_path) %>
-        <%= link_to 'Items', items_path, class: is_active?(items_path) %>         
-        <%= link_to 'Veículos', veiculos_path, class: is_active?(veiculos_path) %> 
+    <div class="container">
+        <div class="row">
+
+        <% cache do %>
+          <div class="sidenav col m2 z-depth-1">
+            <h1 class='automab'>AutoMAB</h1>
+            <%= link_to 'Home', home_path, onclick: 'location.reload();', class: is_active?(home_path) %>
+            <%= link_to 'Agendamentos', agendamentos_path, class: is_active?(agendamentos_path) %>
+            <%= link_to 'Orçamentos', orcamentos_path, class: is_active?(orcamentos_path) %>
+            <%= link_to 'Ordens de Serviços', ordem_servicos_path, class: is_active?(ordem_servicos_path) %>
+            <%= link_to 'Clientes', clientes_path, class: is_active?(clientes_path) %>
+            <%= link_to 'Funcionários', funcionarios_path, class: is_active?(funcionarios_path) %> 
+            <%= link_to 'Cargos', cargos_path, class: is_active?(cargos_path) %> 
+            <%= link_to 'Categorias de Items', categoria_items_path, class: is_active?(categoria_items_path) %>
+            <%= link_to 'Items', items_path, class: is_active?(items_path) %>         
+            <%= link_to 'Veículos', veiculos_path, class: is_active?(veiculos_path) %> 
+          </div>
+        <% end %>
+        
+        <div id="main" class="col <%= ('main'==page ? 'm10' : 'm8') %> center-align">      
+          <%== show_sweet if flash? %>
+          <%= yield %>
+        </div>
+
       </div>
-    <% end %>
-    
-    <div id="main">      
-      <%== show_sweet if flash? %>
-      <%= yield %>
     </div>
     
   </body>

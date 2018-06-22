@@ -1,44 +1,35 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "materialize";
 @import "sweetalert";
+@import "jquery-ui";
+@import "dataTables/jquery.dataTables";
 
 /* Main content */
 #main {
-  margin-left: 18%; /* Same as the width of the sidenav */
   font-size: 16pt; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-  max-width: 60%;  
-  float: center;
+  padding: 0px 0px;    
 }
-
-$color: steelblue;
-
-.btn {
-  margin-left: 0.2em;    
-  width: 10em;    
-  font-size: 14pt;
-  color: white !important;
-}
-
-.btn-success {
-  background-color: $color;
-  border-color: $color;
-}
-
-.btn-danger {
-  background-color: $color;
-  border-color: $color;
-}
-
-.btn-primary {
-  background-color: $color;
-  border-color: $color;
-}
-
 
 .active {
   background-color: darkred !important;  
   color: white !important;
+}
+
+.automab {
+  font-size: 30pt;
+  text-align: center;  
+}
+
+.sidenav {
+  > a {
+    padding-left: 3em !important;
+  }
+  > h1 {
+    padding-left: 0.5em !important;  
+  }
+}
+
+.center {
+  margin: 0 auto !important;  
 }
 
 @import "/\*";
@@ -48,7 +39,7 @@ $color: steelblue;
   position: sticky;
   top: 2em;    
   height: 3em;
-  line-height: 3em;
+  line-height: 3em;  
 
   h1 {      
     display: inline-block;
@@ -80,21 +71,20 @@ th {
   opacity: 1;
   width: 25%;
   overflow: auto;
-  top: 0;        
-  th {
-    border-right: 1px dashed #AAA;      
-  }        
+  top: 0;               
 }
 
 .lista-direita {
   z-index: 1000;
-  max-width: 25% !important; 
+  box-sizing: border-box !important;
+  max-width: 50% !important; 
   min-width: 25% !important; 
+  width: 25%; 
   overflow: auto;
   position: absolute;
   top: 0px;
   bottom: 0px;
-  right: 0px;    
+  right: 0px !important;    
   border-left: 1px solid grey;
   font-size: 10pt;
   display: block;    
@@ -102,23 +92,10 @@ th {
   
   tr {
     cursor: pointer;
-    transition: 200ms linear filter;
-  }
-
-  .table-hover tr:hover {
-    filter: invert(90%);        
-  }
-
-  tbody tr td {
-    background-color: white;
-  }
-
-  th td, th:hover {  
-    // Todas as cores aqui serão invertidas pelo filter do hover!
-    background-color: #DDD;
-    border-color: white;
-    color: black;         
-  }        
+    td {
+      border-radius: 0 !important;
+    }
+  }     
   
   .active td, .active td:hover {
     background-color: darkred !important;      
@@ -135,3 +112,5 @@ th {
     }
   }
 }
+
+

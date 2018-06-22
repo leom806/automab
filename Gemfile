@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -31,10 +31,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 
-# JQuery 3
+
+# jQuery 3
 gem 'jquery-rails'
-# Bootstrap 4
-gem 'bootstrap-sass'
+# DataTables
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+# jQuery UI
+gem 'jquery-ui-rails'
+# Materialize CSS
+gem 'materialize-sass', '~> 1.0.0.rc1'
 # Use Chartkick
 gem 'chartkick'
 # Use Groupdate
@@ -56,7 +61,10 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  # gem 'web-console', '>= 3.3.0'
+  gem 'spring'
+  # Scout Profiler
+  gem 'scout_apm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

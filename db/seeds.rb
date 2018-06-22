@@ -39,7 +39,26 @@ def gerar_chassi
   (0...17).map { charset[rand(charset.size)] } .join
 end
 
-15.times do |i|
+def montadora
+  @montadora = ["Volkswagen", "GM", "Porsche", "Nissan"][rand(0..3)]
+end
+
+def modelo
+  _modelo = ''
+  case @montadora
+  when "Volkswagen"
+    _modelo = ['Jetta', 'Up!', 'Saveiro'][rand(3)]
+  when "GM"
+    _modelo = ['Corsa', 'Celta', 'Cruze'][rand(3)]
+  when "Porsche"
+    _modelo = ['Cayman', 'Cayenne', 'Carrera GT'][rand(3)]
+  when "Nissan"
+    _modelo = ['GT-R', 'Tiida', 'Versa'][rand(3)]
+  end
+  _modelo
+end
+
+150.times do |i|
 
   cliente = Cliente.create!({
     juridica: false,
@@ -51,8 +70,8 @@ end
   })
 
   veiculo = Veiculo.create!({
-    montadora: ["Volkswagen", "GM", "Porsche", "Nissan"][rand(0..3)],
-    modelo: "Modelo",
+    montadora: montadora(),
+    modelo: modelo(),
     versao: "Versão",
     placa: gerar_placa,
     chassi: gerar_chassi,
@@ -147,7 +166,7 @@ end
     ordem_servico_id: ordem_servico.id,
     funcionario_id: funcionario.id,
     data_transacao: Date.today.to_s,
-    valor_recebido: 69.69,
+    valor_recebido: rand(500..600),
     forma_pagamento: ['à vista', 'parcelado 3x', 'boleto 6x'][rand(3)]
   })
   

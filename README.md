@@ -1,1 +1,1 @@
-# AutoMAB é um sistema de gestão para centros automotivos.
+# AutoMAB - sistema de gestão para centros automotivos.
